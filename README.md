@@ -1,4 +1,4 @@
-#Figma link(https://www.figma.com/file/cx0Z0gTXmfck2zk3l7bGj1/Fitek-exercise?node-id=0%3A1&t=1a2abifjw8xXfhJu-0)
+#[Figma link](https://www.figma.com/file/cx0Z0gTXmfck2zk3l7bGj1/Fitek-exercise?node-id=0%3A1&t=1a2abifjw8xXfhJu-0)
 
 
 # Getting Started with Create React App
