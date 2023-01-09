@@ -1,0 +1,48 @@
+@import "mainStyles";
+
+.header-wrapper {
+  background: $header-background;
+  //color: $header-color;
+  padding: 1rem;
+  //text-align: center;
+  max-height: 200px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+.header-title {
+  color: $header-color;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 48px;
+  margin: 0;
+  max-width: 300px;
+}
+.header-genres {
+  //make it in one line like menu buttons
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  //margin: 0 24rem;
+  color: $header-color;
+}
+.header-genre-button {
+  background: none;
+  border: none;
+  color: $header-color;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0 1rem;
+  padding: 0;
+  text-decoration: none;
+  &:hover {
+    color: $header-color;
+    text-decoration: underline;
+  }
+}
+

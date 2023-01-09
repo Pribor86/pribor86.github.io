@@ -1,0 +1,19 @@
+@import "mainStyles";
+@import "header";
+
+.dropdown-menu-button {
+    @extend .header-genre-button;
+}
+.dropdown-menu-genres {
+    display: block;
+    position: absolute;
+    background-color: #292f48;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.6);
+    z-index: 1;
+    padding: 10px;
+}
+.header-genre-button-dropdown {
+    @extend .header-genre-button;
+    margin-top: 5px;
+}

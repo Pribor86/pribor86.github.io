@@ -1,0 +1,12 @@
+$header-background: #252B40;
+$header-color: #FFFFFF;
+
+.event-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -1rem;
+}
+.events-wrapper {
+    margin-top: 200px
+}
