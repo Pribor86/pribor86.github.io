@@ -2,7 +2,7 @@ interface GenreI {
     id: string;
     name: string;
     locale?: string;
-    _links?: Links;
+    _links: Links
     _embedded?: Embedded;
 }
 

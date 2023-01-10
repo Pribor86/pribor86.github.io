@@ -2,11 +2,12 @@ import React from 'react';
 import GenreI from "./interfaces/GenreI";
 import '../styles/header.scss';
 import {DropdownMenu} from "./DropdownMenu";
+import {getEventsByGenre} from "../http";
+import EventI from "./interfaces/EventI";
 
 interface IHeaderProps {
     genres: GenreI[];
-
-
+    setEvents: (events: EventI[]) => void;
 }
 
 export const Header: React.FC<IHeaderProps> = (props) => {
@@ -16,6 +17,12 @@ export const Header: React.FC<IHeaderProps> = (props) => {
     const openDropdown = () => {
         setIsOpened(!isOpened);
         console.log(isOpened);
+    }
+
+    const getNewEventsArray = async (id: string) => {
+        const response = await getEventsByGenre(id);
+        props.setEvents(response);
+
     }
 
 
@@ -31,18 +38,25 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                     Music events
                 </div>
                 <div className='header-genres'>
-                    {/*//wrap to 3 dots if more than 5 genres*/}
                     {props.genres.length > 5 ? props.genres.slice(0, 5).map((genre: GenreI) => {
                         return (
                             <div className="genres-wrapper" key={genre.id}>
-                                <div className='header-genre-button' key={genre.id}>
+                                <div
+                                    className='header-genre-button'
+                                    key={genre.id}
+                                    onClick={() => getNewEventsArray(genre.id)}
+                                >
                                     {genre.name}
                                 </div>
                             </div>
                         );
                     }) : props.genres.map((genre: GenreI) => {
                             return (
-                                <div className='header-genre-button' key={genre.id}>
+                                <div
+                                    className='header-genre-button'
+                                    key={genre.id}
+                                    onClick={() => getNewEventsArray(genre.id)}
+                                >
                                     {genre.name}
                                 </div>
                             );
@@ -53,6 +67,7 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                                 genres={props.genres.slice(5, props.genres.length)}
                                 openDropdown={openDropdown}
                                 onChange={handleChange}
+                                setEvents={props.setEvents}
                             ></DropdownMenu>
                         </div>
                 </div>

@@ -43,4 +43,24 @@ async function getGenres(): Promise<GenreI[]> {
     }
 }
 
-export {getEvents, getGenres};
+async function getEventsByGenre(id: string): Promise<EventI[]> {
+    try {
+        const response: AxiosResponse<{ _embedded: { events: EventI[] } }> = await axios.get(
+            'https://app.ticketmaster.com/discovery/v2/events.json',
+            {
+                params: {
+                    apikey: API_KEY,
+                    genreId: id,
+                    countryCode: 'FI',
+                },
+            },
+        );
+        console.log("response", response);
+        return response.data._embedded.events;
+    } catch (error) {
+        console.log("error", error);
+        return [];
+    }
+}
+
+export {getEvents, getGenres, getEventsByGenre};

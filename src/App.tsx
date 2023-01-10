@@ -6,51 +6,8 @@ import EventI from "./components/interfaces/EventI";
 import {Header} from "./components/Header";
 import './styles/mainStyles.scss';
 import GenreI from "./components/interfaces/GenreI";
+import {EventCard} from "./components/EventCard";
 
-//create mock data for GenreI[]
-// const genres: GenreI[] = [
-//     {
-//         id: "1",
-//         name: 'Rock'
-//     },
-//     {
-//         id: "2",
-//         name: 'Pop'
-//     },
-//     {
-//         id: "3",
-//         name: 'Jazz'
-//     },
-//     {
-//         id: "4",
-//         name: 'Blues'
-//     },
-//     {
-//         id: "5",
-//         name: 'Folk'
-//     },
-//     {
-//         id: "6",
-//         name: 'Country'
-//     },
-//     {
-//         id: "7",
-//         name: 'Electronic'
-//     },
-//     {
-//         id: "8",
-//         name: 'Classical'
-//     },
-//     {
-//         id: "9",
-//         name: 'Reggae'
-//     },
-//     {
-//         id: "10",
-//         name: 'Metal'
-//     },
-//     ];
-//
 
 function App() {
     //set up state for events use EventI[]
@@ -73,24 +30,33 @@ function App() {
         <div className="App">
             <Header
                 genres={genres}
+                setEvents={setEvents}
             />
             <div className='events-wrapper'>
                 <div className="event-cards">
                     {events.length > 0 ? events.map((event) => {
                         return (
-                            <div key={event.id}>
-                                <h1>YOYOYO</h1>
-                                <h1>{event.name}</h1>
-                                <p>{Object.keys(event.dates).map((key) => {
-                                    return (
-                                        <div key={key}>
-                                            <p>{key}</p>
-                                        </div>
-                                    );
-                                })}</p>
-                                <p>{event.locale}</p>
-                            </div>
+                            <EventCard event={event} key={event.id}/>
                         );
+                        // return (
+                        //     <div key={event.id}>
+                        //         {/*find genre in classifications array*/}
+                        //         {event.classifications.length > 0 ? event.classifications.map((classification) => {
+                        //             return (
+                        //                 <div key={classification.genre.id}>{classification.genre.name}</div>
+                        //
+                        //             )}) : null}
+                        //         <h1>{event.name}</h1>
+                        //         <p>{Object.keys(event.dates).map((key) => {
+                        //             return (
+                        //                 <div key={key}>
+                        //                     <p>{key}</p>
+                        //                 </div>
+                        //             );
+                        //         })}</p>
+                        //         <p>{event.locale}</p>
+                        //     </div>
+                        // );
                     }) : <p>No events</p>}
                 </div>
             </div>
