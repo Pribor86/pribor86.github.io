@@ -10,14 +10,16 @@ interface IDropdownMenuProps {
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     openDropdown: () => void;
     setEvents: (events: EventI[]) => void;
+    setGenreId: (genreId: string) => void;
 }
 
 export const DropdownMenu: React.FC<IDropdownMenuProps> = (props) => {
 
     const [isOpened, setIsOpened] = React.useState(false);
     const getNewEventsArray = async (id: string) => {
-        const response = await getEventsByGenre(id);
-        props.setEvents(response);
+        // const response = await getEventsByGenre(id);
+        // props.setEvents(response);
+        props.setGenreId(id);
 
     }
 

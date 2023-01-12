@@ -2,10 +2,9 @@
 
 .header-wrapper {
   background: $header-background;
-  //color: $header-color;
   padding: 1rem;
-  //text-align: center;
   max-height: 200px;
+  box-shadow: white 0px 0px 10px;
 }
 .sticky {
   position: fixed;

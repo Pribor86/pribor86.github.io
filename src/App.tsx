@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {getEvents, getGenres} from "./http";
 import EventI from "./components/interfaces/EventI";
@@ -7,61 +6,98 @@ import {Header} from "./components/Header";
 import './styles/mainStyles.scss';
 import GenreI from "./components/interfaces/GenreI";
 import {EventCard} from "./components/EventCard";
+import {EventInfoCard} from "./components/EventInfoCard";
 
 
 function App() {
-    //set up state for events use EventI[]
     const [events, setEvents] = useState<EventI[]>([]);
     const [genres, setGenres] = useState<GenreI[]>([]);
+    const [page, setPage] = useState<number>(1);
+    const [genreId, setGenreId] = useState<string>('');
+    const [isEventsEnd, setIsEventsEnd] = useState<boolean>(false);
+    const [isInfoCardOpen, setIsInfoCardOpen] = React.useState<boolean>(false);
+    const [selectedEvent, setSelectedEvent] = React.useState<EventI | null>(null);
 
-    //useEffect to call getEvents and set events
+    // const openInfoCard = () => {
+    //     console.log("openInfoCard");
+    //     setIsInfoCardOpen(!isInfoCardOpen);
+    // }
+
+    const handleScroll = () => {
+        if (window.innerHeight + document.documentElement.scrollTop + 5 >= document.documentElement.offsetHeight) {
+            if (!isEventsEnd) {
+                let newPage = page + 1;
+                setPage(newPage);
+                getEvents(page, genreId).then((events) => {
+                    if (events.length === 0) {
+                        setIsEventsEnd(true);
+                    }
+                    setEvents((oldEvents) => [...oldEvents, ...events]);
+                });
+            }
+        }
+    }
     useEffect(() => {
-        getEvents().then((events) => {
-            setEvents(events);
-        });
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    });
+    // useEffect(() => {
+    //     getEvents(page, genreId).then((events) => {
+    //         setEvents(events);
+    //     });
+    // }, [page, genreId]);
+    useEffect(() => {
         getGenres().then((genres) => {
             setGenres(genres);
         });
     }, []);
+    useEffect(() => {
+        getEvents(page, genreId).then((events) => {
+            setEvents(events);
+            setIsEventsEnd(false);
+            setPage(1);
+            window.scrollTo(0, 0);
+        });
+    },[genreId] );
 
-    console.log(events);
+
 
     return (
         <div className="App">
             <Header
                 genres={genres}
                 setEvents={setEvents}
+                page={page}
+                setGenreId={setGenreId}
             />
-            <div className='events-wrapper'>
-                <div className="event-cards">
-                    {events.length > 0 ? events.map((event) => {
+            {events.length > 0 ? (
+                <div className='events-wrapper'>
+                    {events.map((event, index) => {
                         return (
-                            <EventCard event={event} key={event.id}/>
+                            <EventCard
+                                event={event}
+                                key={index}
+                                setSelectedEvent={setSelectedEvent}
+                                setIsInfoCardOpen={setIsInfoCardOpen}
+                            />
                         );
-                        // return (
-                        //     <div key={event.id}>
-                        //         {/*find genre in classifications array*/}
-                        //         {event.classifications.length > 0 ? event.classifications.map((classification) => {
-                        //             return (
-                        //                 <div key={classification.genre.id}>{classification.genre.name}</div>
-                        //
-                        //             )}) : null}
-                        //         <h1>{event.name}</h1>
-                        //         <p>{Object.keys(event.dates).map((key) => {
-                        //             return (
-                        //                 <div key={key}>
-                        //                     <p>{key}</p>
-                        //                 </div>
-                        //             );
-                        //         })}</p>
-                        //         <p>{event.locale}</p>
-                        //     </div>
-                        // );
-                    }) : <p>No events</p>}
+                    })
+                    }
+
+                    {isInfoCardOpen ? (
+                        <EventInfoCard selectedEvent={selectedEvent}/>
+                    ) : null}
                 </div>
-            </div>
+            ) : (
+                <div className='no-events-wrapper'>
+                    <div className="no-events">
+                        <p>Sorry, we didn't find any events for the genre.</p>
+                    </div>
+                </div>
+            )}
+
+
         </div>
     );
 }
-
 export default App;

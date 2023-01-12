@@ -17,3 +17,9 @@
     @extend .header-genre-button;
     margin-top: 5px;
 }
+
+@media screen and (max-width: 768px) {
+    .dropdown-menu-genres {
+        left: 10px;
+    }
+}

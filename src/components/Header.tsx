@@ -2,12 +2,14 @@ import React from 'react';
 import GenreI from "./interfaces/GenreI";
 import '../styles/header.scss';
 import {DropdownMenu} from "./DropdownMenu";
-import {getEventsByGenre} from "../http";
+import {getEvents} from "../http";
 import EventI from "./interfaces/EventI";
 
 interface IHeaderProps {
     genres: GenreI[];
     setEvents: (events: EventI[]) => void;
+    page: number;
+    setGenreId: (genreId: string) => void;
 }
 
 export const Header: React.FC<IHeaderProps> = (props) => {
@@ -20,8 +22,10 @@ export const Header: React.FC<IHeaderProps> = (props) => {
     }
 
     const getNewEventsArray = async (id: string) => {
-        const response = await getEventsByGenre(id);
-        props.setEvents(response);
+        console.log("getNewEventsArray", id, props.page);
+        // const response = await getEvents(props.page, id);
+        // props.setEvents(response);
+        props.setGenreId(id);
 
     }
 
@@ -38,6 +42,14 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                     Music events
                 </div>
                 <div className='header-genres'>
+                    <div className="genres-wrapper">
+                        <div
+                            className='header-genre-button'
+                            onClick={() => getNewEventsArray('')}
+                        >
+                            All Genres
+                        </div>
+                    </div>
                     {props.genres.length > 5 ? props.genres.slice(0, 5).map((genre: GenreI) => {
                         return (
                             <div className="genres-wrapper" key={genre.id}>
@@ -62,14 +74,17 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                             );
                         }
                     )}
+                    {props.genres.length > 5 ? (
                         <div>
                             <DropdownMenu
                                 genres={props.genres.slice(5, props.genres.length)}
                                 openDropdown={openDropdown}
                                 onChange={handleChange}
                                 setEvents={props.setEvents}
+                                setGenreId={props.setGenreId}
                             ></DropdownMenu>
                         </div>
+                    ) : null}
                 </div>
             </div>
         </div>
