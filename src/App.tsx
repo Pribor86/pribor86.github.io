@@ -17,18 +17,14 @@ function App() {
     const [isEventsEnd, setIsEventsEnd] = useState<boolean>(false);
     const [isInfoCardOpen, setIsInfoCardOpen] = React.useState<boolean>(false);
     const [selectedEvent, setSelectedEvent] = React.useState<EventI | null>(null);
-
-    // const openInfoCard = () => {
-    //     console.log("openInfoCard");
-    //     setIsInfoCardOpen(!isInfoCardOpen);
-    // }
+    const [searchValue, setSearchValue] = React.useState('');
 
     const handleScroll = () => {
         if (window.innerHeight + document.documentElement.scrollTop + 5 >= document.documentElement.offsetHeight) {
             if (!isEventsEnd) {
                 let newPage = page + 1;
                 setPage(newPage);
-                getEvents(page, genreId).then((events) => {
+                getEvents(page, genreId, searchValue).then((events) => {
                     if (events.length === 0) {
                         setIsEventsEnd(true);
                     }
@@ -41,26 +37,20 @@ function App() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     });
-    // useEffect(() => {
-    //     getEvents(page, genreId).then((events) => {
-    //         setEvents(events);
-    //     });
-    // }, [page, genreId]);
+
     useEffect(() => {
         getGenres().then((genres) => {
             setGenres(genres);
         });
     }, []);
     useEffect(() => {
-        getEvents(page, genreId).then((events) => {
+        getEvents(page, genreId, searchValue).then((events) => {
             setEvents(events);
             setIsEventsEnd(false);
             setPage(1);
             window.scrollTo(0, 0);
         });
-    },[genreId] );
-
-
+    },[genreId, searchValue] );
 
     return (
         <div className="App">
@@ -69,6 +59,7 @@ function App() {
                 setEvents={setEvents}
                 page={page}
                 setGenreId={setGenreId}
+                setSearchValue={setSearchValue}
             />
             {events.length > 0 ? (
                 <div className='events-wrapper'>
@@ -82,10 +73,6 @@ function App() {
                         );
                     })
                     }
-
-                    {/*{isInfoCardOpen ? (*/}
-                    {/*    <EventInfoCard selectedEvent={selectedEvent}/>*/}
-                    {/*) : null}*/}
                 </div>
             ) : (
                 <div className='no-events-wrapper'>

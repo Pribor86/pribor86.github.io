@@ -1,11 +1,8 @@
 @import "mainStyles";
 
 .event-card {
-  //gap between cards 16px
   margin: 8px;
   flex: 1 1 300px;
-  //margin: 1rem;
-  //padding: 1rem;
   border: 1px solid $header-color;
   border-radius: 5px;
   background: $header-background;
@@ -47,11 +44,11 @@
   justify-content: center;
   align-items: center;
   color: $header-color;
+  font-family: $app-font;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
 }
-
 .event-info-bg {
   height: $event-info-card-height;
   width: 100%;
