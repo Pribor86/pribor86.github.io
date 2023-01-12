@@ -1,5 +1,6 @@
 $header-background: #252B40;
 $header-color: #FFFFFF;
+$app-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 .event-cards {
     display: flex;
@@ -7,7 +8,7 @@ $header-color: #FFFFFF;
     justify-content: space-between;
 }
 .events-wrapper {
-    margin-top: 150px;
+    margin-top: 200px;
     display: flex;
     flex-wrap: wrap;
     padding: 24px;
@@ -20,6 +21,7 @@ $header-color: #FFFFFF;
 }
 
 .no-events {
+    font-family: $app-font;
     margin-top: 150px;
     display: flex;
     flex-direction: row;

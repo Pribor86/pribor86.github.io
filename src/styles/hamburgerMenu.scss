@@ -1,0 +1,12 @@
+@import 'mainStyles';
+
+.hamburger-menu {
+  display: block;
+}
+.hamburger-menu-line {
+  width: 30px;
+  height: 3px;
+  background-color: $header-color;
+  margin: 5px 0;
+    transition: 0.4s;
+}
