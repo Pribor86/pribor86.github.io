@@ -5,7 +5,7 @@ import GenreI from "../components/interfaces/GenreI";
 const API_KEY=`0JIWxBrWrDwCSXZzhD9HKwPngGfGc9fq`
 
 
-async function getEvents(page: number, genreId: string): Promise<EventI[]> {
+async function getEvents(page: number, genreId: string, searchValue: string): Promise<EventI[]> {
     console.log("page", page.toString());
     try {
         const response: AxiosResponse<{ _embedded: { events: EventI[] } }> = await axios.get(
@@ -18,6 +18,7 @@ async function getEvents(page: number, genreId: string): Promise<EventI[]> {
                     classificationId: 'KZFzniwnSyZfZ7v7nJ',
                     page: page.toString(),
                     genreId: genreId,
+                    keyword: searchValue,
                 },
             },
         );
