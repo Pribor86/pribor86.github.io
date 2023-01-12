@@ -1,21 +1,30 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import '../styles/eventCard.scss';
 import EventI from "./interfaces/EventI";
+import {EventInfoCard} from "./EventInfoCard";
+import { useClickOutside } from '../hooks/useClickOutside'
+import {getEvents} from "../http";
 
 interface IEventCardProps {
     event: EventI;
     setSelectedEvent: (event: EventI | null) => void;
-    setIsInfoCardOpen: (isInfoCardOpen: boolean) => void;
 }
 
 export const EventCard: React.FC<IEventCardProps> = (props) => {
+    const { ref, isComponentVisible, setIsComponentVisible } = useClickOutside(true);
+    const [isInfoCardOpen, setIsInfoCardOpen] = useState<boolean>(false);
 
     const openInfoCard = () => {
-        console.log("openInfoCard");
-        props.setSelectedEvent(props.event);
-        props.setIsInfoCardOpen(true);
+        // props.setSelectedEvent(props.event);
+        setIsInfoCardOpen(!isInfoCardOpen);
+        setIsComponentVisible(true)
     }
 
+    useEffect(() => {
+        if (!isComponentVisible) {
+            setIsInfoCardOpen(false)
+        }
+    },[isComponentVisible] );
 
     let filteredImages = props.event.images.filter((image) => {
         return image.url.includes('RETINA_LANDSCAPE_16_9') && !image.fallback;
@@ -38,13 +47,13 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
     }
 
     return (
+        <div >
             <div className='event-card'
                  key={props.event.id}
                  id={props.event.id}
                  onClick={() => openInfoCard()}
-
             >
-                <div className='event-card-image'>
+                <div className={'event-card-image ' + (isInfoCardOpen ? 'open' : null)}>
                     {filteredImages.length > 0 && filteredImages[0] ?
                         <img src={filteredImages[0].url} alt="event"/>
                         :
@@ -54,5 +63,12 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
                     }
                 </div>
             </div>
+            {isInfoCardOpen && (
+                <div ref={ref}>
+                    <EventInfoCard selectedEvent={props.event}/>
+                </div>
+            )
+            }
+        </div>
     );
 }

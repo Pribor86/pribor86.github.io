@@ -2,13 +2,20 @@
 
 .event-info-card {
   width: 100%;
-  heidth: 412px;
+  position: absolute;
+  left: 0;
+  height: $event-info-card-height;
   background-color: $header-background;
   color: $header-color;
-  border: 1px solid red;
+  //border: 1px solid red;
 }
 .event-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.event-info-bg {
+  height: $event-info-card-height;
+  width: 100%;
 }

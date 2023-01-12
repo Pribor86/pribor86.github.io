@@ -78,15 +78,14 @@ function App() {
                                 event={event}
                                 key={index}
                                 setSelectedEvent={setSelectedEvent}
-                                setIsInfoCardOpen={setIsInfoCardOpen}
                             />
                         );
                     })
                     }
 
-                    {isInfoCardOpen ? (
-                        <EventInfoCard selectedEvent={selectedEvent}/>
-                    ) : null}
+                    {/*{isInfoCardOpen ? (*/}
+                    {/*    <EventInfoCard selectedEvent={selectedEvent}/>*/}
+                    {/*) : null}*/}
                 </div>
             ) : (
                 <div className='no-events-wrapper'>
