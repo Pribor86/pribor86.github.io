@@ -68,9 +68,11 @@
 @media (max-width: 550px) {
   .header-row {
     flex-direction: column;
+    margin: 0;
   }
   .header-wrapper {
     height: 120px;
+    padding: 0;
   }
   .header-title {
     font-size: 38px;

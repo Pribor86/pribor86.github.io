@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import GenreI from "./interfaces/GenreI";
 import '../styles/header.scss';
 import {DropdownMenu} from "./DropdownMenu";
-import {getEvents} from "../http";
 import EventI from "./interfaces/EventI";
 import {SearchInput} from "./searchInput";
 import {HamburgerMenu} from "./HumburgerMenu";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 interface IHeaderProps {
     genres: GenreI[];
@@ -21,32 +21,23 @@ export const Header: React.FC<IHeaderProps> = (props) => {
     const [isOpened, setIsOpened] = React.useState(false);
     const [isHumMenuHidden, setIsHumMenuHidden] = React.useState(true);
 
-    const openDropdown = () => {
-        setIsOpened(!isOpened);
-        console.log(isOpened);
-    }
+    const {width} = useWindowDimensions();
 
-    const getNewEventsArray = async (id: string) => {
-        console.log("getNewEventsArray", id, props.page);
-        // const response = await getEvents(props.page, id);
-        // props.setEvents(response);
-        props.setGenreId(id);
-
-    }
-
-    //check screen width if smaller thna 550px show humburger menu
-    const checkScreenWidth = () => {
-        if (window.innerWidth < 550) {
+    useEffect(() => {
+        if (width < 768) {
             setIsHumMenuHidden(false);
         } else {
             setIsHumMenuHidden(true);
         }
+    }, [width]);
+    const openDropdown = () => {
+        setIsOpened(!isOpened);
     }
-    useEffect(() => {
-        window.addEventListener('resize', checkScreenWidth);
-        return () => window.removeEventListener('resize', checkScreenWidth);
-    });
 
+    const getNewEventsArray = async (id: string) => {
+        props.setGenreId(id);
+
+    }
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         console.log(event.target.value);
@@ -110,7 +101,10 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                     ) : null}
                 </div>
                     ) : (
-                <HamburgerMenu genres={props.genres}/>
+                <HamburgerMenu
+                    genres={props.genres}
+                    setGenreId={props.setGenreId}
+                />
                     )}
             </div>
         </div>

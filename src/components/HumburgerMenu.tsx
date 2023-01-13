@@ -4,6 +4,7 @@ import GenreI from "./interfaces/GenreI";
 
 interface IHamburgerMenuProps {
     genres: GenreI[];
+    setGenreId: (genreId: string) => void;
 }
 
 export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
@@ -13,6 +14,11 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
     const openDropdown = () => {
         setIsOpened(!isOpened);
         console.log(isOpened);
+    }
+
+    const changeGenre = (id: string) => {
+        props.setGenreId(id);
+        setIsOpened(false);
     }
 
     return (
@@ -30,6 +36,7 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
                             <div
                                 className="header-genre-button-dropdown"
                                 key={genre.id}
+                                onClick={() => changeGenre(genre.id)}
                             >
                                 {genre.name}
                             </div>

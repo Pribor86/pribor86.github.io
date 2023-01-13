@@ -21,7 +21,15 @@
 
 @media (max-width: 550px) {
   .search-input-wrapper {
+    margin-top: 5px;
     width: 100%;
+  }
+  .search-input {
+    height: 30px;
+    background: url('../assets/searchIcon.png') no-repeat scroll 16px 7px white;
+    background-size: 16px;
+
+
   }
 }
 
