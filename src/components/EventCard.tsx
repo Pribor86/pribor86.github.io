@@ -22,8 +22,6 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
     useEffect(() => {
         if (!isComponentVisible) {
             setIsInfoCardOpen(false)
-        } else {
-            setIsInfoCardOpen(true)
         }
     },[isComponentVisible] );
 
