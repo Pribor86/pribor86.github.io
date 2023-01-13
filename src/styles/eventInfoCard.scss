@@ -9,6 +9,45 @@
   color: $header-color;
   //border: 1px solid red;
 }
+.event-info-card-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  //padding: 1rem;
+}
+.event-info-card-image {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to right, transparent, $header-background);
+    -webkit-mask-image: linear-gradient(to right, transparent, $header-background);
+  }
+}
+
+.event-info-card-description {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 32px;
+  //padding: 32px;
+  h2 {
+    font-family: $app-font;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    margin-top: 32px;
+    margin-bottom: 0;
+  }
+}
+
 .event-cards {
   display: flex;
   flex-wrap: wrap;
@@ -18,4 +57,152 @@
 .event-info-bg {
   height: $event-info-card-height;
   width: 100%;
+}
+.event-info-card-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: $app-font;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  gap: 10px;
+  img {
+    width: 13px;
+    height: 13px;
+  }
+}
+.event-info-card-place {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: $app-font;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    gap: 10px;
+    img {
+        width: 13px;
+        height: 13px;
+    }
+}
+.event-info-card-context {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: $app-font;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    gap: 10px;
+    p {
+      text-align: left;
+    }
+}
+
+//media queries
+@media (max-width: 950px) {
+  .event-info-card-description {
+    width: 70%;
+  }
+}
+
+@media (max-width: 550px) {
+  .event-info-card {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: $event-info-card-height;
+    background-color: $header-background;
+    color: $header-color;
+    //border: 1px solid red;
+  }
+  .event-info-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    //padding: 1rem;
+  }
+  .event-info-card-image {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mask-image: linear-gradient(to bottom, transparent, $header-background);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, $header-background);
+    }
+  }
+  .event-info-card-description {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 32px;
+    h2 {
+      font-family: $app-font;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 40px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  .event-info-card-date {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: $app-font;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    gap: 10px;
+    img {
+      width: 13px;
+      height: 13px;
+    }
+    p {
+        font-size: 14px;
+      margin: 8px;
+    }
+  }
+  .event-info-card-place {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-family: $app-font;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      gap: 10px;
+      img {
+          width: 13px;
+          height: 13px;
+      }
+    p {
+            font-size: 14px;
+            margin: 8px;
+        }
+  }
+  .event-info-card-context {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-family: $app-font;
+      font-size: 14px;
+      font-family: $app-font;
+        font-weight: 400;
+        line-height: 24px;
+        gap: 10px;
+        p {
+          text-align: left;
+          margin: 8px;
+        }
+    }
 }
