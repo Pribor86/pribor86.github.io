@@ -7,23 +7,6 @@ interface EventInfoCardProps {
 }
 
 export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
-    // console.log("EventInfoCard: ", props.event);
-
-    // let filteredImages = props.event.images.filter((image) => {
-    //     return image.url.includes('RETINA_LANDSCAPE_16_9') && !image.fallback;
-    //
-    // })
-    // if (filteredImages.length === 0) {
-    //     filteredImages = props.event.images.filter((image) => {
-    //         return image.url.includes('RETINA_PORTRAIT_16_9') && !image.fallback;
-    //     })
-    // }
-    // if (filteredImages.length === 0) {
-    //     filteredImages = props.event.images.filter((image) => {
-    //         return !image.fallback && image.width > 300;
-    //     })
-    // }
-
     return (
         <div className="event-info-bg">
             <div className="event-info-card">
@@ -36,8 +19,6 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                         ) : (
                             <p>Location not available</p>
                         )}
-
-                        {/*<img src={filteredImages[0].url} alt={props.event.name} />*/}
                     </div>
                 ) : null}
             </div>

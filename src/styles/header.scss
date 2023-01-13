@@ -5,6 +5,8 @@
   padding: 1rem;
   height: 168px;
   box-shadow: white 0px 0px 10px;
+  display: grid;
+  align-content: space-between;
 }
 .sticky {
   position: fixed;
@@ -68,6 +70,15 @@
 @media (max-width: 550px) {
   .header-row {
     flex-direction: column;
+  }
+  .header-wrapper {
+    height: 120px;
+  }
+  .header-title {
+    font-size: 38px;
+    line-height: 32px;
+    margin-bottom: 5px;
+    max-width: 300px;
   }
 
 }

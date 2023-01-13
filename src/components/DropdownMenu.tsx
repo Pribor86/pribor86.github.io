@@ -17,15 +17,12 @@ export const DropdownMenu: React.FC<IDropdownMenuProps> = (props) => {
 
     const [isOpened, setIsOpened] = React.useState(false);
     const getNewEventsArray = async (id: string) => {
-        // const response = await getEventsByGenre(id);
-        // props.setEvents(response);
         props.setGenreId(id);
-
     }
 
     return (
         <div className='dropdown-menu'>
-            {!isOpened && props.genres.length > 5 ?<div className='dropdown-menu-button' onMouseEnter={() => setIsOpened(true)}>
+            {!isOpened && props.genres.length > 4 ?<div className='dropdown-menu-button' onMouseEnter={() => setIsOpened(true)}>
                 More
             </div> : null}
             {isOpened ? <div className='dropdown-menu-genres' onMouseLeave={() => setIsOpened(false)}>

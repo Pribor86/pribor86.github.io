@@ -8,8 +8,8 @@
   background: $header-background;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  max-width: 330px;
-  max-height: 220px;
+  width: 330px;
+  height: 220px;
   &:hover {
     transform: translateY(-5px);
   }
@@ -28,6 +28,7 @@
   &.open:after {
     position: absolute;
     content: '';
+    height: 35px;
     //should be positioned to half of eventCard width
     transform: translate(-197px, 186px);
     border-style: solid;

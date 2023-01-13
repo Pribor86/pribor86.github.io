@@ -73,7 +73,7 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                             All Genres
                         </div>
                     </div>
-                    {props.genres.length > 5 ? props.genres.slice(0, 5).map((genre: GenreI) => {
+                    {props.genres.length > 4 ? props.genres.slice(0, 4).map((genre: GenreI) => {
                         return (
                             <div className="genres-wrapper" key={genre.id}>
                                 <div
@@ -97,10 +97,10 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                             );
                         }
                     )}
-                    {props.genres.length > 5 ? (
+                    {props.genres.length > 4 ? (
                         <div>
                             <DropdownMenu
-                                genres={props.genres.slice(5, props.genres.length)}
+                                genres={props.genres.slice(4, props.genres.length)}
                                 openDropdown={openDropdown}
                                 onChange={handleChange}
                                 setEvents={props.setEvents}
