@@ -3,7 +3,6 @@ import '../styles/eventCard.scss';
 import EventI from "./interfaces/EventI";
 import {EventInfoCard} from "./EventInfoCard";
 import { useClickOutside } from '../hooks/useClickOutside'
-import {getEvents} from "../http";
 
 interface IEventCardProps {
     event: EventI;

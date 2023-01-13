@@ -4,7 +4,7 @@ import '../styles/header.scss';
 import {DropdownMenu} from "./DropdownMenu";
 import EventI from "./interfaces/EventI";
 import {SearchInput} from "./searchInput";
-import {HamburgerMenu} from "./HumburgerMenu";
+import {HamburgerMenu} from "./HamburgerMenu";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
 interface IHeaderProps {

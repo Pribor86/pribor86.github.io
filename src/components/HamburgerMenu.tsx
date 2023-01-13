@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../styles/hamburgerMenu.scss';
 import GenreI from "./interfaces/GenreI";
+import {useClickOutside} from "../hooks/useClickOutside";
 
 interface IHamburgerMenuProps {
     genres: GenreI[];
@@ -9,12 +10,20 @@ interface IHamburgerMenuProps {
 
 export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
 
+    const { ref, isComponentVisible, setIsComponentVisible } = useClickOutside(true);
     const [isOpened, setIsOpened] = React.useState(false);
 
     const openDropdown = () => {
         setIsOpened(!isOpened);
+        setIsComponentVisible(true)
         console.log(isOpened);
     }
+
+    useEffect(() => {
+        if (!isComponentVisible) {
+            setIsOpened(!isOpened);
+        }
+    }, [isComponentVisible]);
 
     const changeGenre = (id: string) => {
         props.setGenreId(id);
@@ -24,13 +33,13 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
     return (
         <div className='hamburger-menu-wrapper'>
             {!isOpened ? (
-                <div className='hamburger-menu' onMouseEnter={openDropdown}>
+                <div className='hamburger-menu' onClick={openDropdown}>
                     <div className='hamburger-menu-line'/>
                     <div className='hamburger-menu-line'/>
                     <div className='hamburger-menu-line'/>
                 </div>
             ) : (
-                <div className='hamburger-menu-dropdown' onMouseLeave={openDropdown}>
+                <div ref={ref} className='hamburger-menu-dropdown' >
                     {props.genres.map((genre: GenreI) => {
                         return (
                             <div
