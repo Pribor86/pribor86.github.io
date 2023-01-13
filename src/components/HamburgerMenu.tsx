@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import '../styles/hamburgerMenu.scss';
 import GenreI from "./interfaces/GenreI";
 import {useClickOutside} from "../hooks/useClickOutside";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 interface IHamburgerMenuProps {
     genres: GenreI[];
@@ -10,14 +11,23 @@ interface IHamburgerMenuProps {
 
 export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
 
+    const {height} = useWindowDimensions();
     const { ref, isComponentVisible, setIsComponentVisible } = useClickOutside(true);
     const [isOpened, setIsOpened] = React.useState(false);
-
+    const [isScroll, setIsScroll] = React.useState(false);
     const openDropdown = () => {
         setIsOpened(!isOpened);
         setIsComponentVisible(true)
         console.log(isOpened);
     }
+
+    useEffect(() => {
+        if (ref.current) {
+            if (height < ref.current.clientHeight) {
+                setIsScroll(true);
+            }
+        }
+    }, [ref.current, height]);
 
     useEffect(() => {
         if (!isComponentVisible) {
@@ -39,7 +49,7 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
                     <div className='hamburger-menu-line'/>
                 </div>
             ) : (
-                <div ref={ref} className='hamburger-menu-dropdown' >
+                <div ref={ref} id="hamburger-dropdown" className={'hamburger-menu-dropdown ' + (isScroll ? 'scrollable' : null)} >
                     {props.genres.map((genre: GenreI) => {
                         return (
                             <div
