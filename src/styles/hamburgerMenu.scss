@@ -13,15 +13,27 @@
     transition: 0.4s;
 }
 .hamburger-menu-dropdown {
-  display: block;
-  position: absolute;
-  background-color: #292f48;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.6);
-  z-index: 1;
-  padding: 10px;
+  height: 100%;
+  width: 60%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: $header-background;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 .scrollable {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
+}
+
+.hamburger-menu-close {
+  position: absolute;
+  top: 0;
+  left: 60%;
+  font-size: 36px;
+  margin-left: 50px;
+  color: $header-color;
 }

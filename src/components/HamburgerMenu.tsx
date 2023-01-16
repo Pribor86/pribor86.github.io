@@ -49,18 +49,22 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
                     <div className='hamburger-menu-line'/>
                 </div>
             ) : (
-                <div ref={ref} id="hamburger-dropdown" className={'hamburger-menu-dropdown ' + (isScroll ? 'scrollable' : null)} >
-                    {props.genres.map((genre: GenreI) => {
-                        return (
-                            <div
-                                className="header-genre-button-dropdown"
-                                key={genre.id}
-                                onClick={() => changeGenre(genre.id)}
-                            >
-                                {genre.name}
-                            </div>
-                        );}
-                    )}
+                <div className='hamburger-menu-wrapper' ref={ref}>
+                    <div id="hamburger-dropdown" className={'hamburger-menu-dropdown ' + (isScroll ? 'scrollable' : null)} >
+                        <div className='hamburger-menu-close' onClick={openDropdown}>&times;</div>
+
+                        {props.genres.map((genre: GenreI) => {
+                            return (
+                                <div
+                                    className="header-genre-button-dropdown"
+                                    key={genre.id}
+                                    onClick={() => changeGenre(genre.id)}
+                                >
+                                    {genre.name}
+                                </div>
+                            );}
+                        )}
+                    </div>
                 </div>
             )}
         </div>
