@@ -10,10 +10,12 @@ interface IEventCardProps {
 }
 
 export const EventCard: React.FC<IEventCardProps> = (props) => {
+
+
+
     const { ref, isComponentVisible, setIsComponentVisible } = useClickOutside(true);
     const [isInfoCardOpen, setIsInfoCardOpen] = useState<boolean>(false);
 
-    console.log(isInfoCardOpen);
     const openInfoCard = () => {
         // props.setSelectedEvent(props.event);
         setIsInfoCardOpen(!isInfoCardOpen);

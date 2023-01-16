@@ -2,14 +2,11 @@ import React from "react";
 import GenreI from "./interfaces/GenreI";
 import '../styles/header.scss';
 import '../styles/dropdownMenuHeader.scss';
-import {getEventsByGenre} from "../http";
-import EventI from "./interfaces/EventI";
 
 interface IDropdownMenuProps {
     genres: GenreI[];
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     openDropdown: () => void;
-    setEvents: (events: EventI[]) => void;
     setGenreId: (genreId: string) => void;
 }
 

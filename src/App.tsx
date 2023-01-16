@@ -6,21 +6,40 @@ import {Header} from "./components/Header";
 import './styles/mainStyles.scss';
 import GenreI from "./components/interfaces/GenreI";
 import {EventCard} from "./components/EventCard";
-import {EventInfoCard} from "./components/EventInfoCard";
-
+import {addEvents, updateEvents, setGenres} from "./store/actions";
+import {useDispatch, useSelector} from "react-redux";
+import {EventState, GenreState} from "./type";
+import {useAppSelector} from "./store/hooks";
+import {AppDispatch} from "./store/store";
+// import {RootState} from "./store";
 
 function App() {
-    const [events, setEvents] = useState<EventI[]>([]);
-    const [genres, setGenres] = useState<GenreI[]>([]);
+
+    // const [genres, setGenres] = useState<GenreI[]>([]);
     const [page, setPage] = useState<number>(1);
     const [genreId, setGenreId] = useState<string>('');
     const [isEventsEnd, setIsEventsEnd] = useState<boolean>(false);
-    const [isInfoCardOpen, setIsInfoCardOpen] = React.useState<boolean>(false);
+    // const [isInfoCardOpen, setIsInfoCardOpen] = React.useState<boolean>(false);
     const [selectedEvent, setSelectedEvent] = React.useState<EventI | null>(null);
     const [searchValue, setSearchValue] = React.useState('');
 
+    const dispatch = useDispatch<AppDispatch>();
+    const events = useAppSelector((state) => state.events.events);
+    // const genresState = useAppSelector((state) => state.genres.genres);
+
+    const handleUpdateEvents = (events: EventI[]) => {
+        dispatch(updateEvents(events));
+    }
+    const handleAddEvents = (events: EventI[]) => {
+        dispatch(addEvents(events));
+    }
+
+    const handleSetGenres = (genres: GenreI[]) => {
+        dispatch(setGenres(genres));
+    }
+
     const handleScroll = () => {
-        if (window.innerHeight + document.documentElement.scrollTop + 5 >= document.documentElement.offsetHeight) {
+        if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.offsetHeight) {
             if (!isEventsEnd) {
                 let newPage = page + 1;
                 setPage(newPage);
@@ -28,42 +47,44 @@ function App() {
                     if (events.length === 0) {
                         setIsEventsEnd(true);
                     }
-                    setEvents((oldEvents) => [...oldEvents, ...events]);
+                    handleAddEvents(events);
                 });
             }
         }
     }
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    });
 
     useEffect(() => {
         getGenres().then((genres) => {
-            setGenres(genres);
+            handleSetGenres(genres);
         });
     }, []);
+
     useEffect(() => {
         getEvents(page, genreId, searchValue).then((events) => {
-            setEvents(events);
+            // setEvents(events);
+            handleUpdateEvents(events);
             setIsEventsEnd(false);
             setPage(1);
             window.scrollTo(0, 0);
         });
     },[genreId, searchValue] );
 
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    });
+
+
     return (
         <div className="App">
             <Header
-                genres={genres}
-                setEvents={setEvents}
                 page={page}
                 setGenreId={setGenreId}
                 setSearchValue={setSearchValue}
             />
             {events.length > 0 ? (
                 <div className='events-wrapper'>
-                    {events.map((event, index) => {
+                    {events.map((event: EventI, index: number) => {
                         return (
                             <EventCard
                                 event={event}
