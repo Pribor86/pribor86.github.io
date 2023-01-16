@@ -5,8 +5,10 @@ import '../styles/eventInfoCard.scss'
 import calendarLogo from '../assets/calendar.png';
 import locationLogo from '../assets/place.png';
 import descArray from "../mock/eventDesc.json";
+import {BackButton} from "./BackButton";
 
 interface EventInfoCardProps {
+    openInfoCard: () => void;
     selectedEvent: EventI | null;
 }
 
@@ -46,6 +48,9 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                             </div>
                             <div className='event-info-card-context'>
                                 <p>{eventDesc.desc}</p>
+                            </div>
+                            <div className='event-info-card-button'>
+                                <BackButton openInfoCard={props.openInfoCard}/>
                             </div>
                         </div>
                         <div className='event-info-card-image'>

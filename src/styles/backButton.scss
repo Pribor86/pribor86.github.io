@@ -1,0 +1,35 @@
+@import 'mainStyles';
+
+.back-button {
+    position: absolute;
+    width: 137px;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid #FFFFFF;
+    align-content: center;
+}
+.back-button-label {
+    position: absolute;
+    width: 137px;
+    height: 40px;
+    font-family: $app-font;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    color: $header-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+//.back-button-label-text {
+//    position: absolute;
+//    width: 137px;
+//    height: 40px;
+//    left: 0px;
+//    top: 0px;
+//    font-family: $app-font;
+//    font-size: 16px;
+//    font-weight: 400;
+//    text-align: center;
+//    color: $color-white;
+//}

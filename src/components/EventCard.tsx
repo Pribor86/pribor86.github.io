@@ -13,6 +13,7 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
     const { ref, isComponentVisible, setIsComponentVisible } = useClickOutside(true);
     const [isInfoCardOpen, setIsInfoCardOpen] = useState<boolean>(false);
 
+    console.log(isInfoCardOpen);
     const openInfoCard = () => {
         // props.setSelectedEvent(props.event);
         setIsInfoCardOpen(!isInfoCardOpen);
@@ -64,7 +65,10 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
             </div>
             {isInfoCardOpen && (
                 <div ref={ref}>
-                    <EventInfoCard selectedEvent={props.event}/>
+                    <EventInfoCard
+                        selectedEvent={props.event}
+                        openInfoCard={openInfoCard}
+                    />
                 </div>
             )
             }
