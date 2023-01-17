@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scrip test",
+    "test": "react-scripts test",
     "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject"
   },

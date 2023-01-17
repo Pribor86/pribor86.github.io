@@ -1,5 +1,5 @@
 
-const mockEvent = {
+const eventMock = {
     "name": "HKO: Loppiaiskonsertti: Joe Hisaishi",
     "type": "event",
     "id": "Z698xZ8KZ17G8_K",
@@ -513,5 +513,5 @@ const mockEvent = {
     }
 }
 
-export default mockEvent;
+export default eventMock;
 

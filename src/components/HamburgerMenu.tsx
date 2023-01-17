@@ -62,7 +62,7 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
                     ref={ref}
                 >
                     <div id="hamburger-dropdown" data-testid='hamburger-dropdown' className={'hamburger-menu-dropdown ' + (isScroll ? 'scrollable' : null)} >
-                        <div className='hamburger-menu-close' onClick={openDropdown}>&times;</div>
+                        <div className='hamburger-menu-close' data-testid='hamburger-menu-close' onClick={openDropdown}>&times;</div>
 
                         {props.genres.map((genre: GenreI) => {
                             return (

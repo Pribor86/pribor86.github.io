@@ -1,17 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
 import {getEvents, getGenres} from "./http";
-import EventI from "./components/interfaces/EventI";
+
 import {Header} from "./components/Header";
-import './styles/mainStyles.scss';
-import GenreI from "./components/interfaces/GenreI";
 import {EventCard} from "./components/EventCard";
+
 import {addEvents, updateEvents, setGenres} from "./store/actions";
-import {useDispatch, useSelector} from "react-redux";
-import {EventState, GenreState} from "./type";
+import {useDispatch} from "react-redux";
 import {useAppSelector} from "./store/hooks";
 import {AppDispatch} from "./store/store";
-// import {RootState} from "./store";
+
+//interfaces
+import EventI from "./components/interfaces/EventI";
+import GenreI from "./components/interfaces/GenreI";
+
+//styles
+import './App.css';
+import './styles/mainStyles.scss';
 
 function App() {
 
@@ -102,8 +106,6 @@ function App() {
                     </div>
                 </div>
             )}
-
-
         </div>
     );
 }
