@@ -88,7 +88,7 @@ interface Image {
     width: number;
     height: number;
     fallback: boolean;
-    attribution: string;
+    attribution?: string;
 }
 interface ExternalLink {
     youtube: Youtube[];
@@ -188,7 +188,7 @@ interface Public {
     startDateTime: string;
     startTBD: boolean;
     startTBA: boolean;
-    endDateTime: Date;
+    endDateTime?: Date;
 }
 interface Image {
     ratio: string;

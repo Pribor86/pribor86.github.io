@@ -5,8 +5,8 @@ import '../styles/dropdownMenuHeader.scss';
 
 interface IDropdownMenuProps {
     genres: GenreI[];
-    onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-    openDropdown: () => void;
+    // onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    // openDropdown: () => void;
     setGenreId: (genreId: string) => void;
 }
 
@@ -18,15 +18,16 @@ export const DropdownMenu: React.FC<IDropdownMenuProps> = (props) => {
     }
 
     return (
-        <div className='dropdown-menu'>
+        <div className='dropdown-menu' data-testid='more-button'>
             {!isOpened && props.genres.length > 4 ?<div className='dropdown-menu-button' onMouseEnter={() => setIsOpened(true)}>
                 More
             </div> : null}
-            {isOpened ? <div className='dropdown-menu-genres' onMouseLeave={() => setIsOpened(false)}>
+            {isOpened ? <div className='dropdown-menu-genres' data-testid='dropdown-menu-genres'  onMouseLeave={() => setIsOpened(false)}>
                     {props.genres.map((genre: GenreI) => {
                         return (
                             <div
                                 className="header-genre-button-dropdown"
+
                                 key={genre.id}
                                 onClick={() => getNewEventsArray(genre.id)}
                             >

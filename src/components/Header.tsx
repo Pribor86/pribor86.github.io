@@ -40,9 +40,9 @@ export const Header: React.FC<IHeaderProps> = (props) => {
 
     }
 
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        console.log(event.target.value);
-    }
+    // const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    //     console.log(event.target.value);
+    // }
 
     return (
         <div className='header'>
@@ -93,8 +93,8 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                         <div>
                             <DropdownMenu
                                 genres={genres.slice(4, genres.length)}
-                                openDropdown={openDropdown}
-                                onChange={handleChange}
+                                // openDropdown={openDropdown}
+                                // onChange={handleChange}
                                 setGenreId={props.setGenreId}
                             ></DropdownMenu>
                         </div>

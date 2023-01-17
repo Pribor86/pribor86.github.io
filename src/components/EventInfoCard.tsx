@@ -28,7 +28,10 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
 
     return (
         <div className="event-info-bg">
-            <div className="event-info-card">
+            <div
+                className="event-info-card"
+                data-testid="event-info-card"
+            >
                 {props.selectedEvent ? (
                     <div className="event-info-card-wrapper">
                         <div className='event-info-card-description'>

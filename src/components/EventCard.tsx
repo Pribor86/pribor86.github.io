@@ -6,7 +6,7 @@ import { useClickOutside } from '../hooks/useClickOutside'
 
 interface IEventCardProps {
     event: EventI;
-    setSelectedEvent: (event: EventI | null) => void;
+    // setSelectedEvent: (event: EventI | null) => void;
 }
 
 export const EventCard: React.FC<IEventCardProps> = (props) => {
@@ -51,6 +51,7 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
     return (
         <div >
             <div className='event-card'
+                 data-testid='event-card'
                  key={props.event.id}
                  id={props.event.id}
                  onClick={() => openInfoCard()}

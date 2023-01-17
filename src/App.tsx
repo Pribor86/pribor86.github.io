@@ -20,7 +20,7 @@ function App() {
     const [genreId, setGenreId] = useState<string>('');
     const [isEventsEnd, setIsEventsEnd] = useState<boolean>(false);
     // const [isInfoCardOpen, setIsInfoCardOpen] = React.useState<boolean>(false);
-    const [selectedEvent, setSelectedEvent] = React.useState<EventI | null>(null);
+    // const [selectedEvent, setSelectedEvent] = React.useState<EventI | null>(null);
     const [searchValue, setSearchValue] = React.useState('');
 
     const dispatch = useDispatch<AppDispatch>();
@@ -89,7 +89,7 @@ function App() {
                             <EventCard
                                 event={event}
                                 key={index}
-                                setSelectedEvent={setSelectedEvent}
+                                // setSelectedEvent={setSelectedEvent}
                             />
                         );
                     })
