@@ -28,7 +28,7 @@ describe('EventCard', () => {
         fireEvent.click(eventCard);
         expect(getByTestId('event-info-card')).toBeInTheDocument();
         expect(getByText('HKO: Loppiaiskonsertti: Joe Hisaishi')).toBeInTheDocument();
-        expect(getByText('2023-01-06 @ 15:00:00')).toBeInTheDocument();
+        expect(getByText('Friday, 2023-01-06 @ 15:00:00')).toBeInTheDocument();
         expect(getByText('MUSIIKKITALO, konserttisali, Helsinki, Finland')).toBeInTheDocument();
     });
 });

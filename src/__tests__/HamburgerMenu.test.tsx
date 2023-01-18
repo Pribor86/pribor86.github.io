@@ -3,15 +3,12 @@ import {render, fireEvent, getByTestId, getByText} from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect';
 import {HamburgerMenu}  from '../components/HamburgerMenu';
 import genresMock from "../__mocks__/genresMock";
-import { useAppSelector } from '../store/hooks';
-import { useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { setSelectedGenre } from '../store/actions';
 
-jest.mock('react-redux', () => ({
-    useDispatch: jest.fn(),
-}));
 jest.mock('../store/hooks', () => ({
     useAppSelector: jest.fn(),
+    useAppDispatch: jest.fn(),
 }));
 jest.mock('../store/actions', () => ({
     setSelectedGenre: jest.fn(),
@@ -20,7 +17,7 @@ describe('HamburgerMenu component', () => {
 
     beforeEach(() => {
         (useAppSelector as jest.Mock).mockReturnValue('1');
-        (useDispatch as jest.Mock).mockReturnValue(jest.fn());
+        (useAppDispatch as jest.Mock).mockReturnValue(jest.fn());
     });
 
     const setGenreId = jest.fn();

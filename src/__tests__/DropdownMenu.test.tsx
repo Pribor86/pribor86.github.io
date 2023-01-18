@@ -3,15 +3,12 @@ import {render, fireEvent, waitFor, getByText} from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
 import {DropdownMenu} from "../components/DropdownMenu";
 import genresMock from "../__mocks__/genresMock";
-import { useAppSelector } from '../store/hooks';
-import { useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { setSelectedGenre } from '../store/actions';
 
-jest.mock('react-redux', () => ({
-    useDispatch: jest.fn(),
-}));
 jest.mock('../store/hooks', () => ({
     useAppSelector: jest.fn(),
+    useAppDispatch: jest.fn(),
 }));
 jest.mock('../store/actions', () => ({
     setSelectedGenre: jest.fn(),
@@ -21,7 +18,7 @@ describe("DropdownMenu component", () => {
 
     beforeEach(() => {
         (useAppSelector as jest.Mock).mockReturnValue('1');
-        (useDispatch as jest.Mock).mockReturnValue(jest.fn());
+        (useAppDispatch as jest.Mock).mockReturnValue(jest.fn());
     });
 
     it("should render correctly with more than 4 genres", () => {

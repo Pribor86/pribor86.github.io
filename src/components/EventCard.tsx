@@ -6,7 +6,6 @@ import { useClickOutside } from '../hooks/useClickOutside'
 
 interface IEventCardProps {
     event: EventI;
-    // setSelectedEvent: (event: EventI | null) => void;
 }
 
 export const EventCard: React.FC<IEventCardProps> = (props) => {
@@ -16,7 +15,6 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
     const [scrollIntoView, setScrollIntoView] = useState<boolean>(false);
 
     const openInfoCard = () => {
-        // props.setSelectedEvent(props.event);
         setIsInfoCardOpen(!isInfoCardOpen);
         setIsComponentVisible(true)
         setScrollIntoView(true)

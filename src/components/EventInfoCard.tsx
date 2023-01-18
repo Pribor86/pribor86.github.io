@@ -6,6 +6,7 @@ import calendarLogo from '../assets/calendar.png';
 import locationLogo from '../assets/place.png';
 import descArray from "../mock/eventDesc.json";
 import {BackButton} from "./BackButton";
+import moment from "moment";
 
 interface EventInfoCardProps {
     openInfoCard: () => void;
@@ -18,7 +19,10 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
     const [eventDesc, setEventDesc] = useState<EventDescI>(descArray[0]);
     const ref = useRef<HTMLDivElement>(null);
 
-    //randomly select event description from descArray
+    const getDayFromDate = (date: string) => {
+        return moment(date).format('dddd');
+    }
+
     const getRandomDesc = () => {
         const randomIndex = Math.floor(Math.random() * descArray.length);
         setEventDesc(descArray[randomIndex]);
@@ -63,12 +67,19 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                             <h2>{props.selectedEvent.name}</h2>
                             <div className='event-info-card-date'>
                                 <img src={calendarLogo} alt="date"/>
-                                <p>{props.selectedEvent.dates.start.localDate} @ {props.selectedEvent.dates.start.localTime}</p>
+                                <p>
+                                    {getDayFromDate(props.selectedEvent.dates.start.localDate)}
+                                    , {props.selectedEvent.dates.start.localDate} @ {props.selectedEvent.dates.start.localTime}
+                                </p>
                             </div>
                             <div className='event-info-card-place'>
                                 <img src={locationLogo} alt="location"/>
                                 {props.selectedEvent._embedded.venues.length > 0 ? (
-                                    <p>{props.selectedEvent._embedded.venues[0].name}, {props.selectedEvent._embedded.venues[0].city.name}, {props.selectedEvent._embedded.venues[0].country.name}</p>
+                                    <p>
+                                        {props.selectedEvent._embedded.venues[0].name}
+                                        , {props.selectedEvent._embedded.venues[0].city.name}
+                                        , {props.selectedEvent._embedded.venues[0].country.name}
+                                    </p>
 
                                 ) : (
                                     <p>Location not available</p>
