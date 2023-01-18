@@ -7,9 +7,7 @@ import {HamburgerMenu} from "./HamburgerMenu";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 //redux store
 import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {useDispatch} from "react-redux";
 import {setSelectedGenre} from "../store/actions";
-import {AppDispatch} from "../store/store";
 
 interface IHeaderProps {
     page: number;

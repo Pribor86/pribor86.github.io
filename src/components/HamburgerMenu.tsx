@@ -5,9 +5,7 @@ import {useClickOutside} from "../hooks/useClickOutside";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
 import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {useDispatch} from "react-redux";
 import {setSelectedGenre} from "../store/actions";
-import {AppDispatch} from "../store/store";
 
 interface IHamburgerMenuProps {
     genres: GenreI[];
@@ -34,7 +32,7 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
                 setIsScroll(true);
             }
         }
-    }, [ref.current, height]);
+    }, [ref, height]);
 
     useEffect(() => {
         if (!isComponentVisible) {

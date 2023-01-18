@@ -3,9 +3,7 @@ import GenreI from "./interfaces/GenreI";
 import '../styles/header.scss';
 import '../styles/dropdownMenuHeader.scss';
 import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {useDispatch} from "react-redux";
 import {setSelectedGenre} from "../store/actions";
-import {AppDispatch} from "../store/store";
 
 interface IDropdownMenuProps {
     genres: GenreI[];
