@@ -9,7 +9,8 @@ describe('EventCard', () => {
         const { getByAltText } = render(<EventCard event={eventMock}/>);
         const eventImage = getByAltText('event');
         expect(eventImage).toBeInTheDocument();
-        expect(eventImage.getAttribute('src')).toBe('https://s1.ticketm.net/img/tat/cft1/201504/13/621300.jpg');
+        expect(eventImage.getAttribute('src'))
+            .toBe('https://s1.ticketm.net/img/tat/cft1/201504/13/621300.jpg');
     });
 
     it('opens and closes the EventInfoCard when clicked', () => {

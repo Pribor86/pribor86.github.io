@@ -1,4 +1,3 @@
-
 const eventMock = {
     "name": "HKO: Loppiaiskonsertti: Joe Hisaishi",
     "type": "event",

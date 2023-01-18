@@ -17,8 +17,6 @@
   outline: none;
 }
 
-//media queries for 320px and move to next line
-
 @media (max-width: 550px) {
   .search-input-wrapper {
     margin-top: 5px;
@@ -28,14 +26,5 @@
     height: 30px;
     background: url('../assets/searchIcon.png') no-repeat scroll 16px 7px white;
     background-size: 16px;
-
-
   }
 }
-
-//@media (max-width: 320px) {
-//  .search-input-wrapper {
-//    width: 100%;
-//  }
-//
-//}

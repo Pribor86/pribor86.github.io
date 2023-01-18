@@ -1,35 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {getEvents, getGenres} from "./http";
-
+//components
 import {Header} from "./components/Header";
 import {EventCard} from "./components/EventCard";
-
+import {useAppSelector} from "./store/hooks";
+//redux store
 import {addEvents, updateEvents, setGenres} from "./store/actions";
 import {useDispatch} from "react-redux";
-import {useAppSelector} from "./store/hooks";
 import {AppDispatch} from "./store/store";
-
 //interfaces
 import EventI from "./components/interfaces/EventI";
 import GenreI from "./components/interfaces/GenreI";
-
 //styles
 import './App.css';
 import './styles/mainStyles.scss';
 
 function App() {
 
-    // const [genres, setGenres] = useState<GenreI[]>([]);
     const [page, setPage] = useState<number>(1);
     const [genreId, setGenreId] = useState<string>('');
     const [isEventsEnd, setIsEventsEnd] = useState<boolean>(false);
-    // const [isInfoCardOpen, setIsInfoCardOpen] = React.useState<boolean>(false);
-    // const [selectedEvent, setSelectedEvent] = React.useState<EventI | null>(null);
     const [searchValue, setSearchValue] = React.useState('');
 
     const dispatch = useDispatch<AppDispatch>();
     const events = useAppSelector((state) => state.events.events);
-    // const genresState = useAppSelector((state) => state.genres.genres);
 
     const handleUpdateEvents = (events: EventI[]) => {
         dispatch(updateEvents(events));
@@ -43,7 +37,12 @@ function App() {
     }
 
     const handleScroll = () => {
-        if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.offsetHeight) {
+        if (
+            window.innerHeight
+            + document.documentElement.scrollTop
+            + 1
+            >= document.documentElement.offsetHeight
+        ) {
             if (!isEventsEnd) {
                 let newPage = page + 1;
                 setPage(newPage);
@@ -65,7 +64,6 @@ function App() {
 
     useEffect(() => {
         getEvents(page, genreId, searchValue).then((events) => {
-            // setEvents(events);
             handleUpdateEvents(events);
             setIsEventsEnd(false);
             setPage(1);
@@ -77,7 +75,6 @@ function App() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     });
-
 
     return (
         <div className="App">
@@ -93,9 +90,8 @@ function App() {
                             <EventCard
                                 event={event}
                                 key={index}
-                                // setSelectedEvent={setSelectedEvent}
                             />
-                        );
+                        )
                     })
                     }
                 </div>

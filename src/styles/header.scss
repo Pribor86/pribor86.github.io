@@ -24,11 +24,9 @@
   max-width: 300px;
 }
 .header-genres {
-  //make it in one line like menu buttons
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  //margin: 0 24rem;
   color: $header-color;
 }
 .header-genre-button {
@@ -43,20 +41,24 @@
   padding: 0;
   text-decoration: none;
   &:hover {
-    color: $header-color;
+    color: $header-color-active;
     text-decoration: underline;
   }
 }
 
+.clicked {
+  color: $header-color-active;
+}
+
 .header-search {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0 1rem;
-    color: $header-color;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 1rem;
+  color: $header-color;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 }
 .header-row {
   display: flex;
@@ -80,5 +82,4 @@
     margin-bottom: 5px;
     max-width: 300px;
   }
-
 }

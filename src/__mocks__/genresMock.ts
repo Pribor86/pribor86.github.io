@@ -9,5 +9,4 @@ const genres: GenreI[] = [
     { id: "6", name: "genre6" , _links: {self: {href: "linkGenre6"}}},
     { id: "7", name: "genre7" , _links: {self: {href: "linkGenre7"}}},
 ];
-
 export default genres;

@@ -1,8 +1,13 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import '../styles/hamburgerMenu.scss';
 import GenreI from "./interfaces/GenreI";
 import {useClickOutside} from "../hooks/useClickOutside";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+
+import {useAppDispatch, useAppSelector} from "../store/hooks";
+import {useDispatch} from "react-redux";
+import {setSelectedGenre} from "../store/actions";
+import {AppDispatch} from "../store/store";
 
 interface IHamburgerMenuProps {
     genres: GenreI[];
@@ -12,13 +17,15 @@ interface IHamburgerMenuProps {
 export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
 
     const {height} = useWindowDimensions();
-    const { ref, isComponentVisible, setIsComponentVisible } = useClickOutside(true);
-    const [isOpened, setIsOpened] = React.useState(false);
-    const [isScroll, setIsScroll] = React.useState(false);
+    const {ref, isComponentVisible, setIsComponentVisible} = useClickOutside(true);
+    const [isOpened, setIsOpened] = useState(false);
+    const [isScroll, setIsScroll] = useState(false);
+    const selectedGenreId = useAppSelector((state) => state.selectedGenreId.selectedGenre);
+    const dispatch = useAppDispatch();
+
     const openDropdown = () => {
         setIsOpened(!isOpened);
         setIsComponentVisible(true)
-        console.log(isOpened);
     }
 
     useEffect(() => {
@@ -38,6 +45,7 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
     const changeGenre = (id: string) => {
         props.setGenreId(id);
         setIsOpened(false);
+        dispatch(setSelectedGenre(id));
     }
 
     return (
@@ -61,14 +69,24 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
                     data-testid='hamburger-menu-wrapper-opened'
                     ref={ref}
                 >
-                    <div id="hamburger-dropdown" data-testid='hamburger-dropdown' className={'hamburger-menu-dropdown ' + (isScroll ? 'scrollable' : null)} >
-                        <div className='hamburger-menu-close' data-testid='hamburger-menu-close' onClick={openDropdown}>&times;</div>
-
+                    <div
+                        id="hamburger-dropdown"
+                        data-testid='hamburger-dropdown'
+                        className={'hamburger-menu-dropdown ' + (isScroll ? 'scrollable' : null)}
+                    >
+                        <div
+                            className='hamburger-menu-close'
+                            data-testid='hamburger-menu-close'
+                            onClick={openDropdown}
+                        >
+                            &times;
+                        </div>
                         {props.genres.map((genre: GenreI) => {
                             return (
                                 <div
-                                    className="header-genre-button-dropdown"
+                                    className={"header-genre-button-dropdown " + (selectedGenreId === genre.id ? ' clicked' : '')}
                                     data-testid='hamburger-menu-genre-button'
+                                    id={'button-' + genre.id}
                                     key={genre.id}
                                     onClick={() => changeGenre(genre.id)}
                                 >

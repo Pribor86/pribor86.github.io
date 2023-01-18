@@ -20,6 +20,16 @@ type GenreAction = {
     genres: GenreI[]
 }
 
+type SelectedGenreState = {
+    selectedGenre: GenreI.id
+}
+
+type SelectedGenreAction = {
+    type: string,
+    genre: GenreI.id
+}
+
 
 type DispatchType = (args: EventAction) => EventAction
 type DispatchType = (args: GenreAction) => GenreAction
+type DispatchType = (args: SelectedGenreAction) => SelectedGenreAction

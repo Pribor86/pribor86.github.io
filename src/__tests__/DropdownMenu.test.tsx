@@ -3,11 +3,31 @@ import {render, fireEvent, waitFor, getByText} from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
 import {DropdownMenu} from "../components/DropdownMenu";
 import genresMock from "../__mocks__/genresMock";
-//doesnt work
+import { useAppSelector } from '../store/hooks';
+import { useDispatch } from 'react-redux';
+import { setSelectedGenre } from '../store/actions';
+
+jest.mock('react-redux', () => ({
+    useDispatch: jest.fn(),
+}));
+jest.mock('../store/hooks', () => ({
+    useAppSelector: jest.fn(),
+}));
+jest.mock('../store/actions', () => ({
+    setSelectedGenre: jest.fn(),
+}));
+
 describe("DropdownMenu component", () => {
 
+    beforeEach(() => {
+        (useAppSelector as jest.Mock).mockReturnValue('1');
+        (useDispatch as jest.Mock).mockReturnValue(jest.fn());
+    });
+
     it("should render correctly with more than 4 genres", () => {
-        const { getByTestId, getByText } = render(<DropdownMenu genres={genresMock} setGenreId={() => {}} />);
+        const { getByTestId, getByText } = render(
+            <DropdownMenu genres={genresMock} setGenreId={() => {}} />
+        );
         expect(getByTestId("more-button")).toBeInTheDocument();
         const moreButton = getByTestId("more-button");
         fireEvent.mouseEnter(moreButton);
@@ -16,22 +36,37 @@ describe("DropdownMenu component", () => {
     });
 
     it("should close the dropdown menu when a genre is clicked", () => {
-        const { container, getByTestId, getByText } = render(<DropdownMenu genres={genresMock} setGenreId={() => {}} />);
+        const { container, getByTestId, getByText } = render(
+            <DropdownMenu genres={genresMock} setGenreId={() => {}} />
+        );
         expect(getByTestId("more-button")).toBeInTheDocument();
         const moreButton = getByTestId("more-button");
         fireEvent.mouseEnter(moreButton);
         expect(getByText("genre1")).toBeInTheDocument();
         fireEvent.click(getByText("genre1"));
         expect(container.querySelector(".dropdown-menu-genres")).toBeNull();
-
     });
 
     it("should call the setGenreId function when a genre is clicked", () => {
         const setGenreId = jest.fn();
-        const { getByText, getByTestId } = render(<DropdownMenu genres={genresMock} setGenreId={setGenreId} />);
+        const { getByText, getByTestId } = render(
+            <DropdownMenu genres={genresMock} setGenreId={setGenreId} />
+        );
         const moreButton = getByTestId("more-button");
         fireEvent.mouseEnter(moreButton);
         fireEvent.click(getByText("genre1"));
         expect(setGenreId).toHaveBeenCalledWith("1");
+    });
+
+    it("should call setGenreId and setSelectedGenre when a genre is clicked", () => {
+        const setGenreId = jest.fn();
+        const { getByText, getByTestId } = render(
+            <DropdownMenu genres={genresMock} setGenreId={setGenreId} />
+        );
+        const moreButton = getByTestId("more-button");
+        fireEvent.mouseEnter(moreButton);
+        fireEvent.click(getByText("genre1"));
+        expect(setGenreId).toHaveBeenCalledWith("1");
+        expect(setSelectedGenre).toHaveBeenCalledWith("1");
     });
 });

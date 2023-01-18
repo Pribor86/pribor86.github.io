@@ -1,28 +1,29 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import GenreI from "./interfaces/GenreI";
 import '../styles/header.scss';
 import {DropdownMenu} from "./DropdownMenu";
-import EventI from "./interfaces/EventI";
 import {SearchInput} from "./searchInput";
 import {HamburgerMenu} from "./HamburgerMenu";
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import {useAppSelector} from "../store/hooks";
+//redux store
+import {useAppDispatch, useAppSelector} from "../store/hooks";
+import {useDispatch} from "react-redux";
+import {setSelectedGenre} from "../store/actions";
+import {AppDispatch} from "../store/store";
 
 interface IHeaderProps {
-    // genres: GenreI[];
     page: number;
     setGenreId: (genreId: string) => void;
     setSearchValue: (searchValue: string) => void;
 }
 
-
 export const Header: React.FC<IHeaderProps> = (props) => {
 
-    const [isOpened, setIsOpened] = React.useState(false);
-    const [isHumMenuHidden, setIsHumMenuHidden] = React.useState(true);
+    const [isHumMenuHidden, setIsHumMenuHidden] = useState(true);
     const genres = useAppSelector((state) => state.genres.genres);
-
+    const selectedGenreId = useAppSelector((state) => state.selectedGenreId.selectedGenre);
     const {width} = useWindowDimensions();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         if (width < 768) {
@@ -31,18 +32,11 @@ export const Header: React.FC<IHeaderProps> = (props) => {
             setIsHumMenuHidden(true);
         }
     }, [width]);
-    const openDropdown = () => {
-        setIsOpened(!isOpened);
-    }
 
     const getNewEventsArray = async (id: string) => {
         props.setGenreId(id);
-
+        dispatch(setSelectedGenre(id));
     }
-
-    // const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    //     console.log(event.target.value);
-    // }
 
     return (
         <div className='header'>
@@ -52,63 +46,69 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                         Music events
                     </div>
                     <div className='header-search'>
-                        <SearchInput setSearchValue={props.setSearchValue}/>
+                        <SearchInput
+                            setSearchValue={props.setSearchValue}
+                        />
                     </div>
                 </div>
                 { isHumMenuHidden ? (
-                <div className='header-genres'>
-                    <div className="genres-wrapper">
-                        <div
-                            className='header-genre-button'
-                            onClick={() => getNewEventsArray('')}
-                        >
-                            All Genres
-                        </div>
-                    </div>
-                    {genres.length > 4 ? genres.slice(0, 4).map((genre: GenreI) => {
-                        return (
-                            <div className="genres-wrapper" key={genre.id}>
-                                <div
-                                    className='header-genre-button'
-                                    key={genre.id}
-                                    onClick={() => getNewEventsArray(genre.id)}
-                                >
-                                    {genre.name}
-                                </div>
+                    <div className='header-genres'>
+                        <div className="genres-wrapper">
+                            <div
+                                className={'header-genre-button ' + (selectedGenreId === '' ? " clicked" : "")}
+                                id={'button-'}
+                                onClick={() => getNewEventsArray('')}
+                            >
+                                All Genres
                             </div>
-                        );
-                    }) : genres.map((genre: GenreI) => {
+                        </div>
+                        {genres.length > 4 ? genres.slice(0, 4).map((genre: GenreI) => {
                             return (
                                 <div
-                                    className='header-genre-button'
+                                    className="genres-wrapper"
                                     key={genre.id}
-                                    onClick={() => getNewEventsArray(genre.id)}
                                 >
-                                    {genre.name}
+                                    <div
+                                        className={'header-genre-button ' + (selectedGenreId === genre.id ? " clicked" : "")}
+                                        id={'button-' + genre.id}
+                                        key={genre.id}
+                                        onClick={() => getNewEventsArray(genre.id)}
+                                    >
+                                        {genre.name}
+                                    </div>
                                 </div>
                             );
+                        }) : genres.map((genre: GenreI) => {
+                                return (
+                                    <div
+                                        className={'header-genre-button ' + (selectedGenreId === genre.id ? " clicked" : "")}
+                                        key={genre.id}
+                                        onClick={() => getNewEventsArray(genre.id)}
+                                    >
+                                        {genre.name}
+                                    </div>
+                                );
+                            }
+                        )}
+                        {genres.length > 4 ? (
+                                <div>
+                                    <DropdownMenu
+                                        genres={genres.slice(4, genres.length)}
+                                        setGenreId={props.setGenreId}
+                                    />
+                                </div>
+                            )
+                            : null
                         }
-                    )}
-                    {genres.length > 4 ? (
-                        <div>
-                            <DropdownMenu
-                                genres={genres.slice(4, genres.length)}
-                                // openDropdown={openDropdown}
-                                // onChange={handleChange}
-                                setGenreId={props.setGenreId}
-                            ></DropdownMenu>
-                        </div>
-                    ) : null}
-                </div>
-                    ) : (
-                <HamburgerMenu
-                    genres={genres}
-                    setGenreId={props.setGenreId}
-                />
-                    )}
+                    </div>
+                ) : (
+                    <HamburgerMenu
+                        genres={genres}
+                        setGenreId={props.setGenreId}
+                    />
+                )}
             </div>
         </div>
-
-    );
+    )
 }
 

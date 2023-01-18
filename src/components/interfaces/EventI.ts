@@ -15,12 +15,10 @@ interface EventI {
     _links: Links;
     _embedded: Embedded;
 }
-
 interface Embedded {
     venues: Venue[];
     attractions: Attraction[];
 }
-
 interface Attraction {
     href?: string;
     name?: string;
@@ -35,22 +33,18 @@ interface Attraction {
     upcomingEvents?: UpcomingEvents;
     _links?: Links;
 }
-
 interface Links {
     self: Self;
     attractions?: Attraction[];
     venues?: Venue[];
 }
-
 interface Self {
     href: string;
 }
-
 interface UpcomingEvents {
     _total: number;
     _filtered: number;
 }
-
 interface Classification {
     primary: boolean;
     segment: Segment;
@@ -60,12 +54,10 @@ interface Classification {
     subType: SubType;
     family: boolean;
 }
-
 interface SubType {
     id: string;
     name: string;
 }
-
 interface Type {
     id: string;
     name: string;
@@ -197,5 +189,4 @@ interface Image {
     height: number;
     fallback: boolean;
 }
-
 export default EventI;

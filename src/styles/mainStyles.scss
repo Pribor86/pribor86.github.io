@@ -1,5 +1,6 @@
 $header-background: #252B40;
 $header-color: #FFFFFF;
+$header-color-active: #FEC017;
 $app-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $event-info-card-height: 400px;
 
@@ -21,7 +22,6 @@ $event-info-card-height: 400px;
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .no-events {
     font-family: $app-font;
     margin-top: 150px;
@@ -35,7 +35,6 @@ $event-info-card-height: 400px;
     border-radius: 10px;
     padding: 20px;
     p {
-        //in a middle of the card
         text-align: center;
         font-size: 24px;
     }

@@ -6,18 +6,14 @@ import { useClickOutside } from '../hooks/useClickOutside'
 
 interface IEventCardProps {
     event: EventI;
-    // setSelectedEvent: (event: EventI | null) => void;
 }
 
 export const EventCard: React.FC<IEventCardProps> = (props) => {
-
-
 
     const { ref, isComponentVisible, setIsComponentVisible } = useClickOutside(true);
     const [isInfoCardOpen, setIsInfoCardOpen] = useState<boolean>(false);
 
     const openInfoCard = () => {
-        // props.setSelectedEvent(props.event);
         setIsInfoCardOpen(!isInfoCardOpen);
         setIsComponentVisible(true)
     }
@@ -30,7 +26,6 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
 
     let filteredImages = props.event.images.filter((image) => {
         return image.url.includes('RETINA_LANDSCAPE_16_9') && !image.fallback;
-
     })
     if (filteredImages.length === 0) {
         filteredImages = props.event.images.filter((image) => {
@@ -49,7 +44,7 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
     }
 
     return (
-        <div >
+        <div>
             <div className='event-card'
                  data-testid='event-card'
                  key={props.event.id}
@@ -73,8 +68,7 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
                         openInfoCard={openInfoCard}
                     />
                 </div>
-            )
-            }
+            )}
         </div>
     );
 }
