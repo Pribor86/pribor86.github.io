@@ -3,8 +3,10 @@ import {getEvents, getGenres} from "./http";
 //components
 import {Header} from "./components/Header";
 import {EventCard} from "./components/EventCard";
-import {useAppSelector} from "./store/hooks";
+import {Footer} from "./components/footer";
+
 //redux store
+import {useAppSelector} from "./store/hooks";
 import {addEvents, updateEvents, setGenres} from "./store/actions";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "./store/store";
@@ -102,6 +104,7 @@ function App() {
                     </div>
                 </div>
             )}
+            <Footer />
         </div>
     );
 }
