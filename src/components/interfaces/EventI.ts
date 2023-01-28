@@ -15,10 +15,12 @@ interface EventI {
     _links: Links;
     _embedded: Embedded;
 }
+
 interface Embedded {
     venues: Venue[];
     attractions: Attraction[];
 }
+
 interface Attraction {
     href?: string;
     name?: string;
@@ -33,18 +35,22 @@ interface Attraction {
     upcomingEvents?: UpcomingEvents;
     _links?: Links;
 }
+
 interface Links {
     self: Self;
     attractions?: Attraction[];
     venues?: Venue[];
 }
+
 interface Self {
     href: string;
 }
+
 interface UpcomingEvents {
     _total: number;
     _filtered: number;
 }
+
 interface Classification {
     primary: boolean;
     segment: Segment;
@@ -54,26 +60,32 @@ interface Classification {
     subType: SubType;
     family: boolean;
 }
+
 interface SubType {
     id: string;
     name: string;
 }
+
 interface Type {
     id: string;
     name: string;
 }
+
 interface SubGenre {
     id: string;
     name: string;
 }
+
 interface Genre {
     id: string;
     name: string;
 }
+
 interface Segment {
     id: string;
     name: string;
 }
+
 interface Image {
     ratio: string;
     url: string;
@@ -82,6 +94,7 @@ interface Image {
     fallback: boolean;
     attribution?: string;
 }
+
 interface ExternalLink {
     youtube: Youtube[];
     twitter: Twitter[];
@@ -90,24 +103,31 @@ interface ExternalLink {
     instagram: Instagram[];
     homepage: Homepage[];
 }
+
 interface Homepage {
     url: string;
 }
+
 interface Instagram {
     url: string;
 }
+
 interface Facebook {
     url: string;
 }
+
 interface Itunes {
     url: string;
 }
+
 interface Twitter {
     url: string;
 }
+
 interface Youtube {
     url: string;
 }
+
 interface Venue {
     name: string;
     type: string;
@@ -124,30 +144,37 @@ interface Venue {
     upcomingEvents: UpcomingEvents;
     _links: Links;
 }
+
 interface Location {
     longitude: string;
     latitude: string;
 }
+
 interface Address {
     line1: string;
 }
+
 interface Country {
     name: string;
     countryCode: string;
 }
+
 interface City {
     name: string;
 }
+
 interface PriceRange {
     type: string;
     currency: string;
     min: number;
     max: number;
 }
+
 interface Promoter {
     id: string;
     name: string;
 }
+
 interface Classification {
     primary: boolean;
     segment: Segment;
@@ -155,15 +182,18 @@ interface Classification {
     subGenre: SubGenre;
     family: boolean;
 }
+
 interface Dates {
     start: Start;
     timezone: string;
     status: Status;
     spanMultipleDays: boolean;
 }
+
 interface Status {
     code: string;
 }
+
 interface Start {
     localDate: string;
     localTime: string;
@@ -173,15 +203,18 @@ interface Start {
     timeTBA: boolean;
     noSpecificTime: boolean;
 }
+
 interface Sales {
     public: Public;
 }
+
 interface Public {
     startDateTime: string;
     startTBD: boolean;
     startTBA: boolean;
     endDateTime?: Date;
 }
+
 interface Image {
     ratio: string;
     url: string;
@@ -189,4 +222,5 @@ interface Image {
     height: number;
     fallback: boolean;
 }
+
 export default EventI;

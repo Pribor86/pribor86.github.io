@@ -1,21 +1,59 @@
 [
-  { "desc": "Concert in the Park - Join us for a patriotic celebration in Central Park featuring live music from top acts, delicious food vendors and an amazing firework show on July 4th. This event is perfect for families, friends and music lovers. Come and experience the magic of live music in the heart of the city, with a perfect view of the skyline and the fireworks." },
-  { "desc": "Jazz Festival - Experience the best in jazz music at our annual festival in the heart of New Orleans from August 12th-15th. This event is a must-attend for jazz enthusiasts, featuring multiple stages with a diverse lineup of artists, delicious food and drink options, and free admission. The festival will be held in the historic French Quarter, providing a unique and authentic setting to experience jazz at its finest." },
-  { "desc": "Rock Festival - Join us for a weekend of non-stop rock music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate rock experience." },
-  { "desc": "Opera Night - Enjoy a night of classical music featuring a renowned opera company. The event will be held at a historic theater, providing an elegant and intimate setting for the performance. Dress code is formal attire." },
-  { "desc": "Blues Festival - Celebrate the best in blues music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of blues artists. Don't miss this opportunity to experience the soulful sound of the blues." },
-  { "desc": "Country Music Festival - Join us for a weekend of non-stop country music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate country music experience." },
-  { "desc": "Folk Festival - Experience the best in folk music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of folk artists. Don't miss this opportunity to experience the rich tradition of folk music." },
-  { "desc": "Orchestral Night - Enjoy a night of classical music featuring a renowned symphony orchestra. The event will be held at a historic theater, providing an elegant and intimate setting for the performance. Dress code is formal attire." },
-  { "desc": "Indie Rock Festival - Join us for a weekend of non-stop indie rock music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate indie rock experience." },
-  { "desc": "R&B Festival - Celebrate the best in R&B music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of R&B artists. Don't miss this opportunity to experience the smooth sound of R&B." },
-  { "desc": "Pop Music Festival - Join us for a weekend of non-stop pop music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate pop music experience." },
-  { "desc": "Hip-Hop Festival - Celebrate the best in hip-hop music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of hip-hop artists. Don't miss this opportunity to experience the energy of hip-hop." },
-  { "desc": "Electronic Music Festival - Join us for a weekend of non-stop electronic music featuring some of the biggest names in the industry. The festival will be held at a state-of-the-art venue, offering a unique and immersive experience for attendees. Don't miss out on the ultimate electronic music experience." },
-  { "desc": "Classical Music Festival - Experience the best in classical music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of classical artists. Don't miss this opportunity to experience the beauty of classical music." },
-  { "desc": "Reggae Festival - Celebrate the best in reggae music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of reggae artists. Don't miss this opportunity to experience the laid-back sound of reggae." },
-  { "desc": "World Music Festival - Join us for a weekend of non-stop world music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate world music experience." },
-  { "desc": "Latin Music Festival - Celebrate the best in Latin music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of Latin artists. Don't miss this opportunity to experience the vibrant sound of Latin music." },
-  { "desc": "Choral Night - Enjoy a night of choral music featuring a renowned choir. The event will be held at a historic church, providing a beautiful and acoustically-rich setting for the performance." },
-  { "desc": "Singer-Songwriter Festival - Experience the best in singer-songwriter music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of artists. Don't miss this opportunity to experience the raw emotion of singer-songwriter music." }
+  {
+    "desc": "Concert in the Park - Join us for a patriotic celebration in Central Park featuring live music from top acts, delicious food vendors and an amazing firework show on July 4th. This event is perfect for families, friends and music lovers. Come and experience the magic of live music in the heart of the city, with a perfect view of the skyline and the fireworks."
+  },
+  {
+    "desc": "Jazz Festival - Experience the best in jazz music at our annual festival in the heart of New Orleans from August 12th-15th. This event is a must-attend for jazz enthusiasts, featuring multiple stages with a diverse lineup of artists, delicious food and drink options, and free admission. The festival will be held in the historic French Quarter, providing a unique and authentic setting to experience jazz at its finest."
+  },
+  {
+    "desc": "Rock Festival - Join us for a weekend of non-stop rock music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate rock experience."
+  },
+  {
+    "desc": "Opera Night - Enjoy a night of classical music featuring a renowned opera company. The event will be held at a historic theater, providing an elegant and intimate setting for the performance. Dress code is formal attire."
+  },
+  {
+    "desc": "Blues Festival - Celebrate the best in blues music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of blues artists. Don't miss this opportunity to experience the soulful sound of the blues."
+  },
+  {
+    "desc": "Country Music Festival - Join us for a weekend of non-stop country music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate country music experience."
+  },
+  {
+    "desc": "Folk Festival - Experience the best in folk music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of folk artists. Don't miss this opportunity to experience the rich tradition of folk music."
+  },
+  {
+    "desc": "Orchestral Night - Enjoy a night of classical music featuring a renowned symphony orchestra. The event will be held at a historic theater, providing an elegant and intimate setting for the performance. Dress code is formal attire."
+  },
+  {
+    "desc": "Indie Rock Festival - Join us for a weekend of non-stop indie rock music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate indie rock experience."
+  },
+  {
+    "desc": "R&B Festival - Celebrate the best in R&B music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of R&B artists. Don't miss this opportunity to experience the smooth sound of R&B."
+  },
+  {
+    "desc": "Pop Music Festival - Join us for a weekend of non-stop pop music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate pop music experience."
+  },
+  {
+    "desc": "Hip-Hop Festival - Celebrate the best in hip-hop music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of hip-hop artists. Don't miss this opportunity to experience the energy of hip-hop."
+  },
+  {
+    "desc": "Electronic Music Festival - Join us for a weekend of non-stop electronic music featuring some of the biggest names in the industry. The festival will be held at a state-of-the-art venue, offering a unique and immersive experience for attendees. Don't miss out on the ultimate electronic music experience."
+  },
+  {
+    "desc": "Classical Music Festival - Experience the best in classical music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of classical artists. Don't miss this opportunity to experience the beauty of classical music."
+  },
+  {
+    "desc": "Reggae Festival - Celebrate the best in reggae music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of reggae artists. Don't miss this opportunity to experience the laid-back sound of reggae."
+  },
+  {
+    "desc": "World Music Festival - Join us for a weekend of non-stop world music featuring some of the biggest names in the industry. The festival will be held at a beautiful outdoor venue, offering camping and RV options for attendees. Don't miss out on the ultimate world music experience."
+  },
+  {
+    "desc": "Latin Music Festival - Celebrate the best in Latin music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of Latin artists. Don't miss this opportunity to experience the vibrant sound of Latin music."
+  },
+  {
+    "desc": "Choral Night - Enjoy a night of choral music featuring a renowned choir. The event will be held at a historic church, providing a beautiful and acoustically-rich setting for the performance."
+  },
+  {
+    "desc": "Singer-Songwriter Festival - Experience the best in singer-songwriter music at our annual festival. The event will feature multiple stages, food vendors, and a wide variety of artists. Don't miss this opportunity to experience the raw emotion of singer-songwriter music."
+  }
 ]

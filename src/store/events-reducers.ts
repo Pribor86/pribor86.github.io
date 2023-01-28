@@ -6,7 +6,7 @@ const eventState: EventState = {
 }
 
 const eventsReducer = (state = eventState, action: EventAction) => {
-    switch(action.type) {
+    switch (action.type) {
         case actionTypes.UPDATE_EVENTS:
             return {
                 events: action.events

@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from "axios";
 import EventI from "../components/interfaces/EventI";
 import GenreI from "../components/interfaces/GenreI";
 
-const API_KEY=`0JIWxBrWrDwCSXZzhD9HKwPngGfGc9fq`
+const API_KEY = `0JIWxBrWrDwCSXZzhD9HKwPngGfGc9fq`
 
 async function getEvents(page: number, genreId: string, searchValue: string): Promise<EventI[]> {
     try {
@@ -19,7 +19,7 @@ async function getEvents(page: number, genreId: string, searchValue: string): Pr
                 },
             },
         );
-        if(response.data._embedded && response.data._embedded.events)
+        if (response.data._embedded && response.data._embedded.events)
             return response.data._embedded.events;
         else
             return [];
@@ -31,7 +31,7 @@ async function getEvents(page: number, genreId: string, searchValue: string): Pr
 
 async function getGenres(): Promise<GenreI[]> {
     try {
-        const response: AxiosResponse<{ segment: {_embedded: {genres: GenreI[] } } }> = await axios.get(
+        const response: AxiosResponse<{ segment: { _embedded: { genres: GenreI[] } } }> = await axios.get(
             'https://app.ticketmaster.com/discovery/v2/classifications/KZFzniwnSyZfZ7v7nJ',
             {
                 params: {
@@ -40,8 +40,7 @@ async function getGenres(): Promise<GenreI[]> {
             },
         );
         return response.data.segment._embedded.genres;
-    }
-    catch (error) {
+    } catch (error) {
         console.log("error", error);
         return [];
     }

@@ -80,17 +80,18 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
                             &times;
                         </div>
                         {props.genres.map((genre: GenreI) => {
-                            return (
-                                <div
-                                    className={"header-genre-button-dropdown " + (selectedGenreId === genre.id ? ' clicked' : '')}
-                                    data-testid='hamburger-menu-genre-button'
-                                    id={'button-' + genre.id}
-                                    key={genre.id}
-                                    onClick={() => changeGenre(genre.id)}
-                                >
-                                    {genre.name}
-                                </div>
-                            );}
+                                return (
+                                    <div
+                                        className={"header-genre-button-dropdown " + (selectedGenreId === genre.id ? ' clicked' : '')}
+                                        data-testid='hamburger-menu-genre-button'
+                                        id={'button-' + genre.id}
+                                        key={genre.id}
+                                        onClick={() => changeGenre(genre.id)}
+                                    >
+                                        {genre.name}
+                                    </div>
+                                );
+                            }
                         )}
                     </div>
                 </div>

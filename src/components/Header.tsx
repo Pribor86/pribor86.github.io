@@ -49,7 +49,7 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                         />
                     </div>
                 </div>
-                { isHumMenuHidden ? (
+                {isHumMenuHidden ? (
                     <div className='header-genres'>
                         <div className="genres-wrapper">
                             <div

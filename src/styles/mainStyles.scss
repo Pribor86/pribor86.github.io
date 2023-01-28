@@ -5,43 +5,47 @@ $app-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $event-info-card-height: 400px;
 
 .event-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
+
 .events-wrapper {
-    margin-top: 200px;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 24px;
-    justify-content: center;
+  margin-top: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px;
+  justify-content: center;
 }
+
 .no-events-wrapper {
-    margin-top: 150px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin-top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
 .no-events {
-    font-family: $app-font;
-    margin-top: 150px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background: $header-background;
-    color: $header-color;
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-    padding: 20px;
-    p {
-        text-align: center;
-        font-size: 24px;
-    }
+  font-family: $app-font;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: $header-background;
+  color: $header-color;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 20px;
+
+  p {
+    text-align: center;
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 550px) {
-    .events-wrapper {
-        margin-top: 110px;
-    }
+  .events-wrapper {
+    margin-top: 110px;
+  }
 }

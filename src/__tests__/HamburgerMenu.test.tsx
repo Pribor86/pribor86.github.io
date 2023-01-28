@@ -1,10 +1,10 @@
 import React from 'react';
 import {render, fireEvent, getByTestId, getByText} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import {HamburgerMenu}  from '../components/HamburgerMenu';
+import {HamburgerMenu} from '../components/HamburgerMenu';
 import genresMock from "../__mocks__/genresMock";
-import { useAppSelector, useAppDispatch } from '../store/hooks';
-import { setSelectedGenre } from '../store/actions';
+import {useAppSelector, useAppDispatch} from '../store/hooks';
+import {setSelectedGenre} from '../store/actions';
 
 jest.mock('../store/hooks', () => ({
     useAppSelector: jest.fn(),
@@ -27,15 +27,15 @@ describe('HamburgerMenu component', () => {
     });
 
     it('should render correctly', () => {
-        const { getByTestId } = render(
+        const {getByTestId} = render(
             <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
         );
         expect(getByTestId('hamburger-menu')).toBeInTheDocument();
     });
 
     it('should open and close dropdown on button click', () => {
-        const { container, getByTestId, getByText } = render(
-            <HamburgerMenu genres={genresMock} setGenreId={setGenreId} />
+        const {container, getByTestId, getByText} = render(
+            <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
         );
         const hamburgerMenuButton = getByTestId('hamburger-menu-button');
         expect(container.querySelector('.hamburger-menu-wrapper')).toBeInTheDocument();
@@ -52,8 +52,8 @@ describe('HamburgerMenu component', () => {
 
 
     it('should call setGenreId on genre button click', () => {
-        const { getByText, getByTestId } = render(
-            <HamburgerMenu genres={genresMock} setGenreId={setGenreId} />
+        const {getByText, getByTestId} = render(
+            <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
         );
         const hamburgerMenuButton = getByTestId('hamburger-menu-button');
         fireEvent.click(hamburgerMenuButton);
@@ -65,8 +65,8 @@ describe('HamburgerMenu component', () => {
     });
 
     it('should call setSelectedGenre on genre button click', () => {
-        const { getByText, getByTestId } = render(
-            <HamburgerMenu genres={genresMock} setGenreId={setGenreId} />
+        const {getByText, getByTestId} = render(
+            <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
         );
         const hamburgerMenuButton = getByTestId('hamburger-menu-button');
         fireEvent.click(hamburgerMenuButton);

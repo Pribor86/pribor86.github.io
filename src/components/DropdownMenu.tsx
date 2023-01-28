@@ -22,7 +22,7 @@ export const DropdownMenu: React.FC<IDropdownMenuProps> = (props) => {
     }
 
     return (
-        <div className='dropdown-menu' >
+        <div className='dropdown-menu'>
             {!isOpened && props.genres.length > 4 ?
                 <div
                     data-testid='more-button'
@@ -40,16 +40,17 @@ export const DropdownMenu: React.FC<IDropdownMenuProps> = (props) => {
                     onMouseLeave={() => setIsOpened(false)}
                 >
                     {props.genres.map((genre: GenreI) => {
-                        return (
-                            <div
-                                className={"header-genre-button-dropdown" + (selectedGenreId === genre.id ? " clicked" : "")}
-                                id={'button-' + genre.id}
-                                key={genre.id}
-                                onClick={() => getNewEventsArray(genre.id)}
-                            >
-                                {genre.name}
-                            </div>
-                        );}
+                            return (
+                                <div
+                                    className={"header-genre-button-dropdown" + (selectedGenreId === genre.id ? " clicked" : "")}
+                                    id={'button-' + genre.id}
+                                    key={genre.id}
+                                    onClick={() => getNewEventsArray(genre.id)}
+                                >
+                                    {genre.name}
+                                </div>
+                            );
+                        }
                     )}
                 </div>
                 : null}

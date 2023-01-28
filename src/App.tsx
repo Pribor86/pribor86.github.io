@@ -71,7 +71,7 @@ function App() {
             setPage(1);
             window.scrollTo(0, 0);
         });
-    },[genreId, searchValue] );
+    }, [genreId, searchValue]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -104,8 +104,9 @@ function App() {
                     </div>
                 </div>
             )}
-            <Footer />
+            <Footer/>
         </div>
     );
 }
+
 export default App;

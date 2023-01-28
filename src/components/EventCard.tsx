@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import '../styles/eventCard.scss';
 import EventI from "./interfaces/EventI";
 import {EventInfoCard} from "./EventInfoCard";
-import { useClickOutside } from '../hooks/useClickOutside'
+import {useClickOutside} from '../hooks/useClickOutside'
 
 interface IEventCardProps {
     event: EventI;
@@ -10,7 +10,7 @@ interface IEventCardProps {
 
 export const EventCard: React.FC<IEventCardProps> = (props) => {
 
-    const { ref, isComponentVisible, setIsComponentVisible } = useClickOutside(true);
+    const {ref, isComponentVisible, setIsComponentVisible} = useClickOutside(true);
     const [isInfoCardOpen, setIsInfoCardOpen] = useState<boolean>(false);
     const [scrollIntoView, setScrollIntoView] = useState<boolean>(false);
 
@@ -24,7 +24,7 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
         if (!isComponentVisible) {
             setIsInfoCardOpen(false)
         }
-    },[isComponentVisible] );
+    }, [isComponentVisible]);
 
     let filteredImages = props.event.images.filter((image) => {
         return image.url.includes('RETINA_LANDSCAPE_16_9') && !image.fallback;
@@ -47,7 +47,7 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
     }
 
     return (
-        <div >
+        <div>
             <div className='event-card'
                  data-testid='event-card'
                  key={props.event.id}

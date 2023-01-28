@@ -6,7 +6,7 @@ const selectedGenreState: SelectedGenreState = {
 }
 
 const selectedGenreReducer = (state = selectedGenreState, action: SelectedGenreAction) => {
-    switch(action.type) {
+    switch (action.type) {
         case actionTypes.SET_SELECTED_GENRE:
             return {
                 selectedGenre: action.genre
