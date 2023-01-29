@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {getEvents, getGenres} from "./http";
 //components
 import {Header} from "./components/Header";
@@ -23,13 +23,14 @@ function App() {
     const [genreId, setGenreId] = useState<string>('');
     const [isEventsEnd, setIsEventsEnd] = useState<boolean>(false);
     const [searchValue, setSearchValue] = React.useState('');
-
+    const [internalPage] = useState<number>(page);
     const dispatch = useDispatch<AppDispatch>();
     const events = useAppSelector((state) => state.events.events);
 
     const handleUpdateEvents = (events: EventI[]) => {
         dispatch(updateEvents(events));
     }
+    const memoizedHandleUpdateEvents = useCallback(handleUpdateEvents, [dispatch]);
     const handleAddEvents = (events: EventI[]) => {
         dispatch(addEvents(events));
     }
@@ -62,16 +63,16 @@ function App() {
         getGenres().then((genres) => {
             handleSetGenres(genres);
         });
-    }, []);
+    });
 
     useEffect(() => {
-        getEvents(page, genreId, searchValue).then((events) => {
-            handleUpdateEvents(events);
+        getEvents(internalPage, genreId, searchValue).then((events) => {
+            memoizedHandleUpdateEvents(events);
             setIsEventsEnd(false);
             setPage(1);
             window.scrollTo(0, 0);
         });
-    }, [genreId, searchValue]);
+    }, [genreId, searchValue, internalPage, memoizedHandleUpdateEvents]);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);

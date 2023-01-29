@@ -1,7 +1,8 @@
 import React from 'react';
-import {render, fireEvent, getByTestId, getByText} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import {HamburgerMenu} from '../components/HamburgerMenu';
+// eslint-disable-next-line jest/no-mocks-import
 import genresMock from "../__mocks__/genresMock";
 import {useAppSelector, useAppDispatch} from '../store/hooks';
 import {setSelectedGenre} from '../store/actions';
@@ -27,53 +28,55 @@ describe('HamburgerMenu component', () => {
     });
 
     it('should render correctly', () => {
-        const {getByTestId} = render(
+        render(
             <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
         );
-        expect(getByTestId('hamburger-menu')).toBeInTheDocument();
+        expect(screen.getByTestId('hamburger-menu')).toBeInTheDocument();
     });
 
     it('should open and close dropdown on button click', () => {
-        const {container, getByTestId, getByText} = render(
+        render(
             <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
         );
-        const hamburgerMenuButton = getByTestId('hamburger-menu-button');
-        expect(container.querySelector('.hamburger-menu-wrapper')).toBeInTheDocument();
-        expect(container.querySelector('.hamburger-menu')).toBeInTheDocument();
+        const hamburgerMenuButton = screen.getByTestId('hamburger-menu-button');
+        expect(screen.getByTestId('hamburger-menu')).toBeInTheDocument();
+        // ('.hamburger-menu-wrapper')).toBeInTheDocument();
+        expect(screen.getByTestId('hamburger-menu-button')).toBeInTheDocument()
+        // expect(container.querySelector('.hamburger-menu')).toBeInTheDocument();
         fireEvent.click(hamburgerMenuButton);
-        const closeButton = getByTestId('hamburger-menu-close');
-        expect(getByText('genre1')).toBeInTheDocument();
-        expect(getByText('genre2')).toBeInTheDocument();
-        expect(getByText('genre3')).toBeInTheDocument();
-        expect(getByText('genre4')).toBeInTheDocument();
+        const closeButton = screen.getByTestId('hamburger-menu-close');
+        expect(screen.getByText('genre1')).toBeInTheDocument();
+        expect(screen.getByText('genre2')).toBeInTheDocument();
+        expect(screen.getByText('genre3')).toBeInTheDocument();
+        expect(screen.getByText('genre4')).toBeInTheDocument();
         fireEvent.click(closeButton);
-        expect(container.querySelector('.hamburger-menu-close')).toBeNull();
+        expect(screen.queryByText('genre1')).not.toBeInTheDocument();
     });
 
 
     it('should call setGenreId on genre button click', () => {
-        const {getByText, getByTestId} = render(
+        render(
             <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
         );
-        const hamburgerMenuButton = getByTestId('hamburger-menu-button');
+        const hamburgerMenuButton = screen.getByTestId('hamburger-menu-button');
         fireEvent.click(hamburgerMenuButton);
-        fireEvent.click(getByText('genre1'));
+        fireEvent.click(screen.getByText('genre1'));
         expect(setGenreId).toHaveBeenCalledWith('1');
         fireEvent.click(hamburgerMenuButton);
-        fireEvent.click(getByText('genre4'));
+        fireEvent.click(screen.getByText('genre4'));
         expect(setGenreId).toHaveBeenCalledWith('4');
     });
 
     it('should call setSelectedGenre on genre button click', () => {
-        const {getByText, getByTestId} = render(
+        render(
             <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
         );
-        const hamburgerMenuButton = getByTestId('hamburger-menu-button');
+        const hamburgerMenuButton = screen.getByTestId('hamburger-menu-button');
         fireEvent.click(hamburgerMenuButton);
-        fireEvent.click(getByText('genre1'));
+        fireEvent.click(screen.getByText('genre1'));
         expect(setSelectedGenre).toHaveBeenCalledWith('1');
         fireEvent.click(hamburgerMenuButton);
-        fireEvent.click(getByText('genre4'));
+        fireEvent.click(screen.getByText('genre4'));
         expect(setSelectedGenre).toHaveBeenCalledWith('4');
     });
 });

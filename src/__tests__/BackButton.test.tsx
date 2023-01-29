@@ -1,14 +1,14 @@
 import React from "react";
-import {render, fireEvent, waitForElementToBeRemoved} from "@testing-library/react";
+import {render, fireEvent, screen} from "@testing-library/react";
 import {BackButton} from "../components/BackButton";
 
 describe("BackButton", () => {
     it("should call openInfoCard on click", () => {
         const openInfoCard = jest.fn();
-        const {getByText} = render(
+        render(
             <BackButton openInfoCard={openInfoCard}/>
         );
-        const button = getByText("Close Detail");
+        const button = screen.getByText("Close Detail");
         fireEvent.click(button);
         expect(openInfoCard).toBeCalled();
     });

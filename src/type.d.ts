@@ -29,7 +29,11 @@ type SelectedGenreAction = {
     genre: GenreI.id
 }
 
+type DispatchType =
+    (args: EventAction | GenreAction | SelectedGenreAction)
+        => EventAction | GenreAction | SelectedGenreAction;
 
-type DispatchType = (args: EventAction) => EventAction
-type DispatchType = (args: GenreAction) => GenreAction
-type DispatchType = (args: SelectedGenreAction) => SelectedGenreAction
+
+// type DispatchType = (args: EventAction) => EventAction
+// type DispatchType = (args: GenreAction) => GenreAction
+// type DispatchType = (args: SelectedGenreAction) => SelectedGenreAction

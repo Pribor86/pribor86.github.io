@@ -6,6 +6,7 @@ const API_KEY = `0JIWxBrWrDwCSXZzhD9HKwPngGfGc9fq`
 
 async function getEvents(page: number, genreId: string, searchValue: string): Promise<EventI[]> {
     try {
+        // noinspection SpellCheckingInspection
         const response: AxiosResponse<{ _embedded?: { events?: EventI[] } }> = await axios.get(
             'https://app.ticketmaster.com/discovery/v2/events.json',
             {

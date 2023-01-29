@@ -4,7 +4,7 @@
   background: $header-background;
   padding: 1rem;
   height: 168px;
-  box-shadow: white 0px 0px 10px;
+  box-shadow: white 0 0 10px;
   display: grid;
   align-content: space-between;
 }
@@ -51,6 +51,7 @@
   }
 }
 
+//noinspection CssUnusedSymbol
 .clicked {
   color: $header-color-active;
 }

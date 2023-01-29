@@ -53,7 +53,7 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                 clearTimeout(timer1);
 
             };
-        }, [props.scrollIntoView]);
+        });
 
     return (
         <div ref={ref} className={'event-info-bg'}>

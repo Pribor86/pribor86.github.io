@@ -4,12 +4,6 @@ $header-color-active: #FEC017;
 $app-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $event-info-card-height: 400px;
 
-.event-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .events-wrapper {
   margin-top: 200px;
   display: flex;

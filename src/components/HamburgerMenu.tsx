@@ -38,7 +38,7 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
         if (!isComponentVisible) {
             setIsOpened(!isOpened);
         }
-    }, [isComponentVisible]);
+    },[isComponentVisible, isOpened]);
 
     const changeGenre = (id: string) => {
         props.setGenreId(id);

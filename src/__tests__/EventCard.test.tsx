@@ -1,34 +1,37 @@
 import React from 'react';
-import {render, fireEvent, getByTestId} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 import {EventCard} from '../components/EventCard';
+// eslint-disable-next-line jest/no-mocks-import
 import eventMock from "../__mocks__/eventMock";
 
 describe('EventCard', () => {
 
     it('renders the correct event image', () => {
-        const {getByAltText} = render(<EventCard event={eventMock}/>);
-        const eventImage = getByAltText('event');
+        render(<EventCard event={eventMock}/>);
+        const eventImage = screen.getByAltText('event');
         expect(eventImage).toBeInTheDocument();
         expect(eventImage.getAttribute('src'))
             .toBe('https://s1.ticketm.net/img/tat/cft1/201504/13/621300.jpg');
     });
 
     it('opens and closes the EventInfoCard when clicked', () => {
-        const {getByTestId, queryByTestId} = render(<EventCard event={eventMock}/>);
-        const eventCard = getByTestId('event-card');
+        render(<EventCard event={eventMock}/>);
+        const eventCard = screen.getByTestId('event-card');
         fireEvent.click(eventCard);
-        expect(getByTestId('event-info-card')).toBeInTheDocument();
+        expect(screen.getByTestId('event-info-card')).toBeInTheDocument();
         fireEvent.click(eventCard);
-        expect(queryByTestId('event-info-card')).toBeNull();
+        expect(screen.queryByTestId('event-info-card')).toBeNull();
     });
 
     it('opens the EventInfoCard when clicked and check if the correct event info is displayed', () => {
-        const {getByTestId, getByText} = render(<EventCard event={eventMock}/>);
-        const eventCard = getByTestId('event-card');
+        render(<EventCard event={eventMock}/>);
+        const eventCard = screen.getByTestId('event-card');
         fireEvent.click(eventCard);
-        expect(getByTestId('event-info-card')).toBeInTheDocument();
-        expect(getByText('HKO: Loppiaiskonsertti: Joe Hisaishi')).toBeInTheDocument();
-        expect(getByText('Friday, 2023-01-06 @ 15:00:00')).toBeInTheDocument();
-        expect(getByText('MUSIIKKITALO, konserttisali, Helsinki, Finland')).toBeInTheDocument();
+        expect(screen.getByTestId('event-info-card')).toBeInTheDocument();
+        // noinspection SpellCheckingInspection
+        expect(screen.getByText('HKO: Loppiaiskonsertti: Joe Hisaishi')).toBeInTheDocument();
+        expect(screen.getByText('Friday, 2023-01-06 @ 15:00:00')).toBeInTheDocument();
+        // noinspection SpellCheckingInspection
+        expect(screen.getByText('MUSIIKKITALO, konserttisali, Helsinki, Finland')).toBeInTheDocument();
     });
 });
