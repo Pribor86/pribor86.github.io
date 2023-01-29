@@ -20,7 +20,7 @@ describe("DropdownMenu component", () => {
     it("should render correctly with more than 4 genres", () => {
         render(
             <DropdownMenu items={genresMock} setByClick={() => {
-            }} title={"More"} showingLength={4} renderItem={(item) => <div>{item.name}</div>
+            }} title={"More"} showingLength={5} renderItem={(item) => <div>{item.name}</div>
             }/>
         );
         expect(screen.getByTestId("more-button")).toBeInTheDocument();
