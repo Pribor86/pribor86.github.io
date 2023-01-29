@@ -1,35 +1,36 @@
 import React, {useState} from "react";
-import GenreI from "./interfaces/GenreI";
+// import GenreI from "./interfaces/GenreI";
 import '../styles/header.scss';
 import '../styles/dropdownMenuHeader.scss';
 import {useAppDispatch, useAppSelector} from "../store/hooks";
 import {setSelectedGenre} from "../store/actions";
 
-interface IDropdownMenuProps {
-    genres: GenreI[];
-    setGenreId: (genreId: string) => void;
+interface IDropdownMenuProps<T> {
+    title: string;
+    items: T[];
+    renderItem: (item: T) => JSX.Element;
+    setByClick: (id: string) => void;
+    showingLength: number;
 }
 
-export const DropdownMenu: React.FC<IDropdownMenuProps> = (props) => {
-
+export const DropdownMenu = <T extends { id: string }>(props: IDropdownMenuProps<T>) => {
     const [isOpened, setIsOpened] = useState(false);
     const selectedGenreId = useAppSelector((state) => state.selectedGenreId.selectedGenre);
-    const dispatch = useAppDispatch()
-    const getNewEventsArray = async (id: string) => {
-        props.setGenreId(id);
+
+    const handleClick = (id: string) => {
+        props.setByClick(id);
         setIsOpened(false);
-        dispatch(setSelectedGenre(id));
     }
 
     return (
         <div className='dropdown-menu'>
-            {!isOpened && props.genres.length > 4 ?
+            {!isOpened && props.items.length > props.showingLength ?
                 <div
                     data-testid='more-button'
                     className='dropdown-menu-button'
                     onMouseEnter={() => setIsOpened(true)}
                 >
-                    More
+                    {props.title}
                 </div>
                 : null
             }
@@ -39,21 +40,20 @@ export const DropdownMenu: React.FC<IDropdownMenuProps> = (props) => {
                     data-testid='dropdown-menu-genres'
                     onMouseLeave={() => setIsOpened(false)}
                 >
-                    {props.genres.map((genre: GenreI) => {
-                            return (
-                                <div
-                                    className={"header-genre-button-dropdown" + (selectedGenreId === genre.id ? " clicked" : "")}
-                                    id={'button-' + genre.id}
-                                    key={genre.id}
-                                    onClick={() => getNewEventsArray(genre.id)}
-                                >
-                                    {genre.name}
-                                </div>
-                            );
-                        }
-                    )}
+                    {props.items.map((item) => {
+                        return (
+                            <div
+                                className={"header-genre-button-dropdown" + (selectedGenreId === item.id ? " clicked" : "")}
+                                id={'button' + item.id}
+                                key={item.id}
+                                onClick={() => handleClick(item.id)}
+                            >
+                                {props.renderItem(item)}
+                            </div>
+                        );
+                    })}
                 </div>
                 : null}
         </div>
     );
-}
+};

@@ -15,6 +15,11 @@ interface IHeaderProps {
     setSearchValue: (searchValue: string) => void;
 }
 
+interface Item {
+    id: string;
+    name: string;
+}
+
 export const Header: React.FC<IHeaderProps> = (props) => {
 
     const [isHumMenuHidden, setIsHumMenuHidden] = useState(true);
@@ -34,6 +39,14 @@ export const Header: React.FC<IHeaderProps> = (props) => {
     const getNewEventsArray = async (id: string) => {
         props.setGenreId(id);
         dispatch(setSelectedGenre(id));
+    }
+
+    const renderItem = (item: Item) => {
+        return (
+            <div>
+                {item.name}
+            </div>
+        );
     }
 
     return (
@@ -90,9 +103,12 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                         )}
                         {genres.length > 4 ? (
                                 <div>
-                                    <DropdownMenu
-                                        genres={genres.slice(4, genres.length)}
-                                        setGenreId={props.setGenreId}
+                                    <DropdownMenu<Item>
+                                        items={genres.slice(4, genres.length)}
+                                        title={'More'}
+                                        renderItem={renderItem}
+                                        setByClick={getNewEventsArray}
+                                        showingLength={4}
                                     />
                                 </div>
                             )
