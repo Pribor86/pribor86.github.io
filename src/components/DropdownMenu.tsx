@@ -1,9 +1,7 @@
 import React, {useState} from "react";
-// import GenreI from "./interfaces/GenreI";
 import '../styles/header.scss';
 import '../styles/dropdownMenuHeader.scss';
-import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {setSelectedGenre} from "../store/actions";
+import {useAppSelector} from "../store/hooks";
 
 interface IDropdownMenuProps<T> {
     title: string;
