@@ -31,6 +31,7 @@ function App() {
         });
     });
 
+    // noinspection SpellCheckingInspection
     return (
         <div className="App">
             <Header

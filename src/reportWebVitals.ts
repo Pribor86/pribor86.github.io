@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 import {ReportHandler} from 'web-vitals';
 
 // noinspection SpellCheckingInspection
