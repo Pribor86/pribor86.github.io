@@ -10,7 +10,6 @@ import {useAppDispatch, useAppSelector} from "../store/hooks";
 import {setSelectedDropdownItemId, setSelectedGenre} from "../store/actions";
 
 interface IHeaderProps {
-    page: number;
     setGenreId: (genreId: string) => void;
     setSearchValue: (searchValue: string) => void;
 }
