@@ -1,11 +1,15 @@
 import React from 'react';
 import '../styles/footer.scss';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+    title: string;
+}
+
+export const Footer: React.FC<FooterProps> = (props) => {
     return (
         <div className='footer sticky-footer'>
             <div className='footer-text'>
-                <p>Fitek 2020</p>
+                <p>{props.title}</p>
             </div>
         </div>
     );

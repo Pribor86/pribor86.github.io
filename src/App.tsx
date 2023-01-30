@@ -41,7 +41,7 @@ function App() {
                 genreId={genreId}
                 searchValue={searchValue}
             />
-            <Footer/>
+            <Footer title={'Fitek 2020'}/>
         </div>
     );
 }
