@@ -32,7 +32,7 @@ async function getEvents(page: number, genreId: string, searchValue: string): Pr
 
 async function getGenres(): Promise<GenreI[]> {
     try {
-        const response: AxiosResponse<{ segment: { _embedded: { genres: GenreI[] } } }> = await axios.get(
+        const response: AxiosResponse<{ segment?: { _embedded?: { genres?: GenreI[] } } }> = await axios.get(
             'https://app.ticketmaster.com/discovery/v2/classifications/KZFzniwnSyZfZ7v7nJ',
             {
                 params: {
@@ -40,7 +40,10 @@ async function getGenres(): Promise<GenreI[]> {
                 },
             },
         );
-        return response.data.segment._embedded.genres;
+        if (response.data.segment && response.data.segment._embedded && response.data.segment._embedded.genres)
+            return response.data.segment._embedded.genres;
+        else
+            return [];
     } catch (error) {
         console.log("error", error);
         return [];
