@@ -1,24 +1,24 @@
 import React, {useEffect, useState} from "react";
 import '../styles/hamburgerMenu.scss';
-import GenreI from "./interfaces/GenreI";
 import {useClickOutside} from "../hooks/useClickOutside";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
 import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {setSelectedGenre} from "../store/actions";
+import {setSelectedDropdownItemId} from "../store/actions";
 
-interface IHamburgerMenuProps {
-    genres: GenreI[];
-    setGenreId: (genreId: string) => void;
+interface IHamburgerMenuProps<T> {
+    items: T[];
+    setItemId: (id: string) => void;
+    renderItem: (item: T) => JSX.Element;
 }
 
-export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
+export const HamburgerMenu = <T extends { id: string }>(props: IHamburgerMenuProps<T>) => {
 
     const {height} = useWindowDimensions();
     const {ref, isComponentVisible, setIsComponentVisible} = useClickOutside(true);
     const [isOpened, setIsOpened] = useState(false);
     const [isScroll, setIsScroll] = useState(false);
-    const selectedGenreId = useAppSelector((state) => state.selectedGenreId.selectedGenre);
+    const selectedDropdownItemId = useAppSelector((state) => state.selectedDropdownItemId.selectedDropdownItemId);
     const dispatch = useAppDispatch();
 
     const openDropdown = () => {
@@ -40,10 +40,10 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
         }
     }, [isComponentVisible, isOpened]);
 
-    const changeGenre = (id: string) => {
-        props.setGenreId(id);
+    const handleClick = (id: string) => {
+        props.setItemId(id);
         setIsOpened(false);
-        dispatch(setSelectedGenre(id));
+        dispatch(setSelectedDropdownItemId(id));
     }
 
     return (
@@ -79,16 +79,16 @@ export const HamburgerMenu: React.FC<IHamburgerMenuProps> = (props) => {
                         >
                             &times;
                         </div>
-                        {props.genres.map((genre: GenreI) => {
+                        {props.items.map((item: T) => {
                                 return (
                                     <div
-                                        className={"header-genre-button-dropdown " + (selectedGenreId === genre.id ? ' clicked' : '')}
-                                        data-testid='hamburger-menu-genre-button'
-                                        id={'button-' + genre.id}
-                                        key={genre.id}
-                                        onClick={() => changeGenre(genre.id)}
+                                        className={"header-item-button-dropdown " + (selectedDropdownItemId === item.id ? ' clicked' : '')}
+                                        data-testid='hamburger-menu-item-button'
+                                        id={'button-' + item.id}
+                                        key={item.id}
+                                        onClick={() => handleClick(item.id)}
                                     >
-                                        {genre.name}
+                                        {props.renderItem(item)}
                                     </div>
                                 );
                             }

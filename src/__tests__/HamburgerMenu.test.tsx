@@ -5,14 +5,14 @@ import {HamburgerMenu} from '../components/HamburgerMenu';
 // eslint-disable-next-line jest/no-mocks-import
 import genresMock from "../__mocks__/genresMock";
 import {useAppSelector, useAppDispatch} from '../store/hooks';
-import {setSelectedGenre} from '../store/actions';
+import {setSelectedDropdownItemId} from '../store/actions';
 
 jest.mock('../store/hooks', () => ({
     useAppSelector: jest.fn(),
     useAppDispatch: jest.fn(),
 }));
 jest.mock('../store/actions', () => ({
-    setSelectedGenre: jest.fn(),
+    setSelectedDropdownItemId: jest.fn(),
 }));
 describe('HamburgerMenu component', () => {
 
@@ -29,14 +29,14 @@ describe('HamburgerMenu component', () => {
 
     it('should render correctly', () => {
         render(
-            <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
+            <HamburgerMenu items={genresMock} setItemId={setGenreId} renderItem={(item) => <div>{item.name}</div>}/>
         );
         expect(screen.getByTestId('hamburger-menu')).toBeInTheDocument();
     });
 
     it('should open and close dropdown on button click', () => {
         render(
-            <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
+            <HamburgerMenu items={genresMock} setItemId={setGenreId} renderItem={(item) => <div>{item.name}</div>}/>
         );
         const hamburgerMenuButton = screen.getByTestId('hamburger-menu-button');
         expect(screen.getByTestId('hamburger-menu')).toBeInTheDocument();
@@ -56,7 +56,7 @@ describe('HamburgerMenu component', () => {
 
     it('should call setGenreId on genre button click', () => {
         render(
-            <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
+            <HamburgerMenu items={genresMock} setItemId={setGenreId} renderItem={(item) => <div>{item.name}</div>}/>
         );
         const hamburgerMenuButton = screen.getByTestId('hamburger-menu-button');
         fireEvent.click(hamburgerMenuButton);
@@ -69,14 +69,14 @@ describe('HamburgerMenu component', () => {
 
     it('should call setSelectedGenre on genre button click', () => {
         render(
-            <HamburgerMenu genres={genresMock} setGenreId={setGenreId}/>
+            <HamburgerMenu items={genresMock} setItemId={setGenreId} renderItem={(item) => <div>{item.name}</div>}/>
         );
         const hamburgerMenuButton = screen.getByTestId('hamburger-menu-button');
         fireEvent.click(hamburgerMenuButton);
         fireEvent.click(screen.getByText('genre1'));
-        expect(setSelectedGenre).toHaveBeenCalledWith('1');
+        expect(setSelectedDropdownItemId).toHaveBeenCalledWith('1');
         fireEvent.click(hamburgerMenuButton);
         fireEvent.click(screen.getByText('genre4'));
-        expect(setSelectedGenre).toHaveBeenCalledWith('4');
+        expect(setSelectedDropdownItemId).toHaveBeenCalledWith('4');
     });
 });

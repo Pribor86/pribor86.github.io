@@ -117,9 +117,10 @@ export const Header: React.FC<IHeaderProps> = (props) => {
                         }
                     </div>
                 ) : (
-                    <HamburgerMenu
-                        genres={genres}
-                        setGenreId={props.setGenreId}
+                    <HamburgerMenu<Item>
+                        items={genres}
+                        renderItem={renderItem}
+                        setItemId={getNewEventsArray}
                     />
                 )}
             </div>
