@@ -26,3 +26,10 @@ export const setSelectedGenre = (genre: string) => {
         genre
     }
 }
+
+export const setSelectedDropdownItemId = (id: string) => {
+    return {
+        type: actionTypes.SET_SELECTED_DROPDOWN_ITEM_ID,
+        id
+    }
+}

@@ -13,7 +13,7 @@ interface IDropdownMenuProps<T> {
 
 export const DropdownMenu = <T extends { id: string }>(props: IDropdownMenuProps<T>) => {
     const [isOpened, setIsOpened] = useState(false);
-    const selectedGenreId = useAppSelector((state) => state.selectedGenreId.selectedGenre);
+    const selectedDropdownItemId = useAppSelector((state) => state.selectedDropdownItemId.selectedDropdownItemId);
 
     const handleClick = (id: string) => {
         props.setByClick(id);
@@ -34,14 +34,14 @@ export const DropdownMenu = <T extends { id: string }>(props: IDropdownMenuProps
             }
             {isOpened ?
                 <div
-                    className='dropdown-menu-genres'
-                    data-testid='dropdown-menu-genres'
+                    className='dropdown-menu-items'
+                    data-testid='dropdown-menu-items'
                     onMouseLeave={() => setIsOpened(false)}
                 >
                     {props.items.map((item) => {
                         return (
                             <div
-                                className={"header-genre-button-dropdown" + (selectedGenreId === item.id ? " clicked" : "")}
+                                className={"header-item-button-dropdown" + (selectedDropdownItemId === item.id ? " clicked" : "")}
                                 id={'button' + item.id}
                                 key={item.id}
                                 onClick={() => handleClick(item.id)}

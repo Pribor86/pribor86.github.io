@@ -7,7 +7,7 @@ import {HamburgerMenu} from "./HamburgerMenu";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 //redux store
 import {useAppDispatch, useAppSelector} from "../store/hooks";
-import {setSelectedGenre} from "../store/actions";
+import {setSelectedDropdownItemId, setSelectedGenre} from "../store/actions";
 
 interface IHeaderProps {
     page: number;
@@ -39,6 +39,7 @@ export const Header: React.FC<IHeaderProps> = (props) => {
     const getNewEventsArray = async (id: string) => {
         props.setGenreId(id);
         dispatch(setSelectedGenre(id));
+        dispatch(setSelectedDropdownItemId(id))
     }
 
     const renderItem = (item: Item) => {

@@ -5,7 +5,7 @@
   @extend .header-genre-button;
 }
 
-.dropdown-menu-genres {
+.dropdown-menu-items {
   display: block;
   position: absolute;
   background-color: #292f48;
@@ -15,7 +15,7 @@
   padding: 10px;
 }
 
-.header-genre-button-dropdown {
+.header-item-button-dropdown {
   @extend .header-genre-button;
   margin-top: 5px;
 }

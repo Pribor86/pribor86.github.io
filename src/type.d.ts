@@ -29,11 +29,15 @@ type SelectedGenreAction = {
     genre: GenreI.id
 }
 
+type SelectedDropdownItemIdState = {
+    selectedDropdownItemId: string
+}
+
+type SelectedDropdownItemIdAction = {
+    type: string,
+    id: string
+}
+
 type DispatchType =
-    (args: EventAction | GenreAction | SelectedGenreAction)
-        => EventAction | GenreAction | SelectedGenreAction;
-
-
-// type DispatchType = (args: EventAction) => EventAction
-// type DispatchType = (args: GenreAction) => GenreAction
-// type DispatchType = (args: SelectedGenreAction) => SelectedGenreAction
+    (args: EventAction | GenreAction | SelectedGenreAction | SelectedDropdownItemIdAction)
+        => EventAction | GenreAction | SelectedGenreAction | SelectedDropdownItemIdAction;
