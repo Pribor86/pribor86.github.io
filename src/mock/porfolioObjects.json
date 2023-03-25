@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "Music Events - ReactJS TypeScript",
+    "description": "This is a portfolio website built with ReactJS and TypeScript. It uses open API for the events. It is a single page application that uses React Redux, React Hooks and reusable components. The website is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "https://res.cloudinary.com/dzcmadjl1/image/upload/v1593640000/portfolio/portfolio-reactjs-typescript.png"
+    ],
+    "url": "https://portfolio-reactjs-typescript.netlify.app/",
+    "github": "github",
+    "tech": [
+      "ReactJS",
+      "TypeScript",
+      "React Redux",
+      "React Hooks",
+      "Styled Components",
+      "Netlify",
+      "GitHub"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Lottie Ads App - VueJS",
+    "description": "This is a web-application, built during my internship at LevelUp. It is a single page application that uses VueJS, Vuex, Vue Router, Vuetify, Lottie, Axios, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "https://res.cloudinary.com/dzcmadjl1/image/upload/v1593640000/portfolio/portfolio-vuejs.png"
+    ],
+    "url": "https://portfolio-vuejs.netlify.app/",
+    "github": "github",
+    "tech": [
+      "VueJS",
+      "Vuex",
+      "Vue Router",
+      "Vuetify",
+      "Lottie",
+      "Axios",
+      "DigitalOcean",
+      "GitHub"
+    ]
+  }
+]
