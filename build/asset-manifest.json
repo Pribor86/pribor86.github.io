@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pribor86.github.io/static/css/main.cf9e5144.css",
-    "main.js": "/pribor86.github.io/static/js/main.c97842ed.js",
-    "static/js/787.ef4b0582.chunk.js": "/pribor86.github.io/static/js/787.ef4b0582.chunk.js",
-    "index.html": "/pribor86.github.io/index.html",
-    "main.cf9e5144.css.map": "/pribor86.github.io/static/css/main.cf9e5144.css.map",
-    "main.c97842ed.js.map": "/pribor86.github.io/static/js/main.c97842ed.js.map",
-    "787.ef4b0582.chunk.js.map": "/pribor86.github.io/static/js/787.ef4b0582.chunk.js.map"
+    "main.css": "/static/css/main.cf9e5144.css",
+    "main.js": "/static/js/main.5f0a5264.js",
+    "static/js/787.ef4b0582.chunk.js": "/static/js/787.ef4b0582.chunk.js",
+    "index.html": "/index.html",
+    "main.cf9e5144.css.map": "/static/css/main.cf9e5144.css.map",
+    "main.5f0a5264.js.map": "/static/js/main.5f0a5264.js.map",
+    "787.ef4b0582.chunk.js.map": "/static/js/787.ef4b0582.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cf9e5144.css",
-    "static/js/main.c97842ed.js"
+    "static/js/main.5f0a5264.js"
   ]
 }
