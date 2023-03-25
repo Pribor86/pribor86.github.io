@@ -2,13 +2,15 @@ import EventI from "../components/interfaces/EventI";
 import * as actionTypes from "./actionTypes";
 import GenreI from "../components/interfaces/GenreI";
 
-export const updateEvents = (events: EventI[]) => {
+import portfolioItemI from "../components/interfaces/portfolioItemI";
+
+export const updateEvents = (events: portfolioItemI[]) => {
     return {
         type: actionTypes.UPDATE_EVENTS,
         events
     }
 }
-export const addEvents = (events: EventI[]) => {
+export const addEvents = (events: portfolioItemI[]) => {
     return {
         type: actionTypes.ADD_EVENTS,
         events

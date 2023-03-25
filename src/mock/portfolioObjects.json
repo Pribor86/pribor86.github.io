@@ -1,0 +1,120 @@
+[
+  {
+    "id": "1",
+    "name": "Music Events - ReactJS TypeScript",
+    "description": "This is a portfolio website built with ReactJS and TypeScript. It uses open API for the events. It is a single page application that uses React Redux, React Hooks and reusable components. The website is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "../assets/portfolio/coding/music_events.png"
+    ],
+    "url": "",
+    "github": "github",
+    "tech": [
+      "ReactJS",
+      "TypeScript",
+      "React Redux",
+      "React Hooks",
+      "Styled Components",
+      "Netlify",
+      "GitHub"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Lottie Ads App - VueJS",
+    "description": "This is a web-application, built during my internship at LevelUp. It is a single page application that uses VueJS, Vuex, Vue Router, Vuetify, Lottie, Axios, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "../assets/portfolio/coding/lottie_ads.png"
+    ],
+    "url": "https://portfolio-vuejs.netlify.app/",
+    "github": "It's a private repository",
+    "tech": [
+      "VueJS",
+      "Vuex",
+      "Vue Router",
+      "Vuetify",
+      "Lottie",
+      "Axios",
+      "DigitalOcean",
+      "GitHub"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "RunProperty OU - Real Estate Web Application",
+    "description": "This is a web-application, built during my internship at LevelUp. It is a single page application that uses VueJS, Vuex, Vue Router, Vuetify, Lottie, Axios, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "../assets/portfolio/coding/runproperty.png"
+    ],
+    "url": "https://runproperty.com/",
+    "github": "It's a private repository",
+    "tech": [
+      "VueJS",
+      "Vuex",
+      "Vue Router",
+      "Axios",
+      "Google Cloud",
+      "AWS S3",
+      "GitLab"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "PetStop - Study project",
+    "description": "This is a study project, built during my internship at LevelUp. It is a single page application that uses VueJS, Vuex, Vue Router, Vuetify, Lottie, Axios, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "../assets/portfolio/coding/pet_stop.png"
+    ],
+    "url": "https://petstop.netlify.app/",
+    "github": "It's a private repository",
+    "tech": [
+      "VueJS",
+      "Vuex",
+      "Vue Router",
+      "Axios",
+      "Netlify",
+      "GitHub"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "My LinkedIn Profile",
+    "description": "This is my LinkedIn profile. It is a single page application that uses ReactJS, React Redux, React Hooks, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "../assets/portfolio/coding/linkedin.png"
+    ],
+    "url": "https://www.linkedin.com/in/andrii-khomenko-0a1b3b1a3/",
+    "github": "",
+    "tech": [
+    ]
+  },
+  {
+    "id": "6",
+    "name": "My GitHub Profile",
+    "description": "This is my GitHub profile. It is a single page application that uses ReactJS, React Redux, React Hooks, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "../assets/portfolio/coding/github.png"
+    ],
+    "url": "https://github.com/Pribor86",
+    "github": "",
+    "tech": [
+    ]
+  },
+  {
+    "id": "7",
+    "name": "My Portfolio Website",
+    "description": "This is my portfolio website. It is a single page application that uses ReactJS, React Redux, React Hooks, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "images": [
+      "../assets/portfolio/coding/portfolio.png"
+    ],
+    "url": "https://andrii-khomenko.netlify.app/",
+    "github": "github",
+    "tech": [
+      "ReactJS",
+      "React Redux",
+      "React Hooks",
+      "Styled Components",
+      "Netlify",
+      "GitHub"
+    ]
+  }
+]

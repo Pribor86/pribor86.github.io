@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from "react";
 import '../styles/eventCard.scss';
 import EventI from "./interfaces/EventI";
+import portfolioItemI from "./interfaces/portfolioItemI";
 import {EventInfoCard} from "./EventInfoCard";
 import {useClickOutside} from '../hooks/useClickOutside'
 
+import logo from '../assets/music_events.png';
+
 interface IEventCardProps {
-    event: EventI;
+    event: portfolioItemI;
 }
 
 export const EventCard: React.FC<IEventCardProps> = (props) => {
+
+    console.log('EventCard render', props.event)
 
     const {ref, isComponentVisible, setIsComponentVisible} = useClickOutside(true);
     const [isInfoCardOpen, setIsInfoCardOpen] = useState<boolean>(false);
@@ -26,25 +31,25 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
         }
     }, [isComponentVisible]);
 
-    let filteredImages = props.event.images.filter((image) => {
-        return image.url.includes('RETINA_LANDSCAPE_16_9') && !image.fallback;
-
-    })
-    if (filteredImages.length === 0) {
-        filteredImages = props.event.images.filter((image) => {
-            return image.url.includes('RETINA_PORTRAIT_16_9') && !image.fallback;
-        })
-    }
-    if (filteredImages.length === 0) {
-        filteredImages = props.event.images.filter((image) => {
-            return !image.fallback && image.width > 300;
-        })
-    }
-    if (filteredImages.length === 0) {
-        filteredImages = props.event.images.filter((image) => {
-            return image.fallback && image.url.includes('RETINA_LANDSCAPE_16_9');
-        })
-    }
+    // let filteredImages = props.event.images.filter((image) => {
+    //     return image.url.includes('RETINA_LANDSCAPE_16_9') && !image.fallback;
+    //
+    // })
+    // if (filteredImages.length === 0) {
+    //     filteredImages = props.event.images.filter((image) => {
+    //         return image.url.includes('RETINA_PORTRAIT_16_9') && !image.fallback;
+    //     })
+    // }
+    // if (filteredImages.length === 0) {
+    //     filteredImages = props.event.images.filter((image) => {
+    //         return !image.fallback && image.width > 300;
+    //     })
+    // }
+    // if (filteredImages.length === 0) {
+    //     filteredImages = props.event.images.filter((image) => {
+    //         return image.fallback && image.url.includes('RETINA_LANDSCAPE_16_9');
+    //     })
+    // }
 
     return (
         <div>
@@ -55,11 +60,13 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
                  onClick={() => openInfoCard()}
             >
                 <div className={'event-card-image ' + (isInfoCardOpen ? 'open' : null)}>
-                    {filteredImages.length > 0 && filteredImages[0] ?
-                        <img src={filteredImages[0].url} alt="event"/>
+                    {props.event.images.length > 0 && props.event.images[0] ?
+                        <img src={props.event.images[0]} alt="event"/>
+                        // <img src={logo} alt="event"/>
                         :
                         <div className='event-card-image-no-image'>
-                            {props.event.name}
+                            {props.event.name} <br/>
+                            {props.event.images}
                         </div>
                     }
                 </div>

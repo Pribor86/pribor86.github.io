@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import EventI from "./interfaces/EventI";
+import portfolioItemI from "./interfaces/portfolioItemI";
 import EventDescI from "./interfaces/EventDescI";
 import '../styles/eventInfoCard.scss'
 import calendarLogo from '../assets/calendar.png';
@@ -10,7 +11,7 @@ import moment from "moment";
 
 interface EventInfoCardProps {
     openInfoCard: () => void;
-    selectedEvent: EventI | null;
+    selectedEvent: portfolioItemI | null;
     scrollIntoView: boolean;
 }
 
@@ -68,17 +69,17 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                             <div className='event-info-card-date'>
                                 <img src={calendarLogo} alt="date"/>
                                 <p>
-                                    {getDayFromDate(props.selectedEvent.dates.start.localDate)}
-                                    , {props.selectedEvent.dates.start.localDate} @ {props.selectedEvent.dates.start.localTime}
+                                    {getDayFromDate(props.selectedEvent.tech[0])}
+                                    , {props.selectedEvent.tech[1]} @ {props.selectedEvent.tech[2]}
                                 </p>
                             </div>
                             <div className='event-info-card-place'>
                                 <img src={locationLogo} alt="location"/>
-                                {props.selectedEvent._embedded.venues.length > 0 ? (
+                                {props.selectedEvent.tech.length > 0 ? (
                                     <p>
-                                        {props.selectedEvent._embedded.venues[0].name}
-                                        , {props.selectedEvent._embedded.venues[0].city.name}
-                                        , {props.selectedEvent._embedded.venues[0].country.name}
+                                        {props.selectedEvent.tech[1]}
+                                        , {props.selectedEvent.tech[2]}
+                                        , {props.selectedEvent.tech[3]}
                                     </p>
 
                                 ) : (
@@ -94,7 +95,7 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                         </div>
                         <div className='event-info-card-image'>
                             {props.selectedEvent.images.length > 0 ? (
-                                <img src={props.selectedEvent.images[0].url} alt="event"/>
+                                <img src={props.selectedEvent.images[0]} alt="event"/>
                             ) : (
                                 <div className='event-info-card-image-no-image'>
                                     <p>No image available</p>

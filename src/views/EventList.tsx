@@ -1,9 +1,10 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {getEvents} from "../http";
+import {getEvents, getPortfolio} from "../http";
 import {EventCard} from "../components/EventCard";
 import {useAppSelector} from "../store/hooks";
 import {addEvents, updateEvents} from "../store/actions";
 import EventI from "../components/interfaces/EventI";
+import portfolioItemI from "../components/interfaces/portfolioItemI";
 import {AppDispatch} from "../store/store";
 import {useDispatch} from "react-redux";
 
@@ -22,11 +23,11 @@ export const EventList: React.FC<Props> = ({genreId, searchValue}) => {
     const dispatch = useDispatch<AppDispatch>();
     const events = useAppSelector((state) => state.events.events);
 
-    const handleUpdateEvents = (events: EventI[]) => {
+    const handleUpdateEvents = (events: portfolioItemI[]) => {
         dispatch(updateEvents(events));
     };
     const memoizedHandleUpdateEvents = useCallback(handleUpdateEvents, [dispatch]);
-    const handleAddEvents = (events: EventI[]) => {
+    const handleAddEvents = (events: portfolioItemI[]) => {
         dispatch(addEvents(events));
     }
     const handleScroll = () => {
@@ -39,12 +40,12 @@ export const EventList: React.FC<Props> = ({genreId, searchValue}) => {
             if (!isEventsEnd) {
                 let newPage = page + 1;
                 setPage(newPage);
-                getEvents(page, genreId, searchValue).then((events) => {
-                    if (events.length === 0) {
-                        setIsEventsEnd(true);
-                    }
-                    handleAddEvents(events);
-                });
+                // getEvents(page, genreId, searchValue).then((events) => {
+                //     if (events.length === 0) {
+                //         setIsEventsEnd(true);
+                //     }
+                //     handleAddEvents(events);
+                // });
             }
         }
     }
@@ -55,11 +56,15 @@ export const EventList: React.FC<Props> = ({genreId, searchValue}) => {
     });
 
     useEffect(() => {
-        getEvents(internalPage, genreId, searchValue).then((events) => {
-            memoizedHandleUpdateEvents(events);
-            setIsEventsEnd(false);
-            setPage(1);
-            window.scrollTo(0, 0);
+        // getEvents(internalPage, genreId, searchValue).then((events) => {
+        //     memoizedHandleUpdateEvents(events);
+        //     setIsEventsEnd(false);
+        //     setPage(1);
+        //     window.scrollTo(0, 0);
+        // });
+        getPortfolio().then((portfolio) => {
+            console.log(portfolio);
+            memoizedHandleUpdateEvents(portfolio);
         });
     }, [genreId, searchValue, memoizedHandleUpdateEvents, internalPage]);
 
@@ -67,7 +72,7 @@ export const EventList: React.FC<Props> = ({genreId, searchValue}) => {
         <>
             {events.length > 0 ? (
                 <div className='events-wrapper'>
-                    {events.map((event: EventI, index: number) => {
+                    {events.map((event: portfolioItemI, index: number) => {
                         return (
                             <EventCard
                                 event={event}

@@ -1,14 +1,16 @@
 import EventI from "./components/interfaces/EventI";
 import GenreI from "./components/interfaces/GenreI";
 
+import portfolioItemI from "./components/interfaces/portfolioItemI";
+
 
 type EventState = {
-    events: EventI[]
+    events: portfolioItemI[]
 }
 
 type EventAction = {
     type: string,
-    events: EventI[]
+    events: portfolioItemI[]
 }
 
 type GenreState = {
