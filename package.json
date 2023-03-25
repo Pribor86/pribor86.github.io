@@ -1,6 +1,6 @@
 {
   "name": "ticketmasterreact",
-  "homepage": "https://pribor86.github.io/pribor86.github.io/",
+  "homepage": "https://pribor86.github.io/pribor86.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -33,7 +33,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watch",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
