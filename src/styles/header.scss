@@ -3,7 +3,7 @@
 .header-wrapper {
   background: $header-background;
   padding: 1rem;
-  height: 168px;
+  height: 140px;
   box-shadow: white 0 0 10px;
   display: grid;
   align-content: space-between;
@@ -24,6 +24,7 @@
   line-height: 48px;
   margin: 0;
   max-width: 300px;
+  white-space: nowrap;
 }
 
 .header-genres {
@@ -73,6 +74,13 @@
   align-items: center;
   margin: 0 1rem;
 }
+@media (max-width: 1000px) {
+  .header-title {
+    font-size: 26px;
+    line-height: 40px;
+    white-space: normal;
+  }
+}
 
 @media (max-width: 550px) {
   .header-row {
@@ -84,9 +92,10 @@
     padding: 0;
   }
   .header-title {
-    font-size: 38px;
+    font-size: 20px;
     line-height: 32px;
     margin-bottom: 5px;
     max-width: 300px;
+    white-space: pre-wrap;
   }
 }

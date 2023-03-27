@@ -42,7 +42,7 @@ function App() {
                 genreId={genreId}
                 searchValue={searchValue}
             />
-            <Footer title={'Fitek 2020'}/>
+            <Footer title={'Aleksandr Grigorjev @ 2023'}/>
         </div>
     );
 }

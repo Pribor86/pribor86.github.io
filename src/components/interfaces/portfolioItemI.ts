@@ -5,6 +5,7 @@ interface PortfolioItemI {
     images: string[];
     url: string;
     github: string;
+    figma: string;
     tech: string[];
 }
 

@@ -59,10 +59,11 @@ export const EventCard: React.FC<IEventCardProps> = (props) => {
                  id={props.event.id}
                  onClick={() => openInfoCard()}
             >
+
                 <div className={'event-card-image ' + (isInfoCardOpen ? 'open' : null)}>
                     {props.event.images.length > 0 && props.event.images[0] ?
                         <img src={props.event.images[0]} alt="event"/>
-                        // <img src={logo} alt="event"/>
+
                         :
                         <div className='event-card-image-no-image'>
                             {props.event.name} <br/>

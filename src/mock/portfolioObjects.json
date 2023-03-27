@@ -2,12 +2,13 @@
   {
     "id": "1",
     "name": "Music Events - ReactJS TypeScript",
-    "description": "This is a portfolio website built with ReactJS and TypeScript. It uses open API for the events. It is a single page application that uses React Redux, React Hooks and reusable components. The website is hosted on Netlify and the source code is available on GitHub.",
+    "description": "This is a portfolio website built with ReactJS and TypeScript. It uses open API for getting events. It is a single page application that uses React Redux, React Hooks and reusable components. The website is hosted on Netlify and the source code is available on GitHub.",
     "images": [
       "../assets/portfolio/coding/music_events.png"
     ],
-    "url": "",
-    "github": "github",
+    "url": "https://symphonious-choux-45ed77.netlify.app",
+    "github": "https://github.com/Pribor86/ReactTypescriptApp",
+    "figma": "",
     "tech": [
       "ReactJS",
       "TypeScript",
@@ -26,6 +27,7 @@
       "../assets/portfolio/coding/lottie_ads.png"
     ],
     "url": "https://portfolio-vuejs.netlify.app/",
+    "figma": "",
     "github": "It's a private repository",
     "tech": [
       "VueJS",
@@ -46,6 +48,7 @@
       "../assets/portfolio/coding/runproperty.png"
     ],
     "url": "https://runproperty.com/",
+    "figma": "",
     "github": "It's a private repository",
     "tech": [
       "VueJS",
@@ -64,8 +67,9 @@
     "images": [
       "../assets/portfolio/coding/pet_stop.png"
     ],
-    "url": "https://petstop.netlify.app/",
-    "github": "It's a private repository",
+    "url": "",
+    "figma": "https://www.figma.com/file/CI6Zcru6vkoiIqWkA2OKLE/Untitled?node-id=2-101&t=utAoglVgY6WNUkcT-0",
+    "github": "",
     "tech": [
       "VueJS",
       "Vuex",
@@ -83,6 +87,7 @@
       "../assets/portfolio/coding/linkedin.png"
     ],
     "url": "https://www.linkedin.com/in/andrii-khomenko-0a1b3b1a3/",
+    "figma": "",
     "github": "",
     "tech": [
     ]
@@ -96,6 +101,7 @@
     ],
     "url": "https://github.com/Pribor86",
     "github": "",
+    "figma": "",
     "tech": [
     ]
   },
@@ -108,6 +114,7 @@
     ],
     "url": "https://andrii-khomenko.netlify.app/",
     "github": "github",
+    "figma": "",
     "tech": [
       "ReactJS",
       "React Redux",

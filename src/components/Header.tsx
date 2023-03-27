@@ -54,74 +54,74 @@ export const Header: React.FC<IHeaderProps> = (props) => {
             <div className='header-wrapper sticky'>
                 <div className='header-row'>
                     <div className='header-title'>
-                        Music events
+                        Portfolio - Aleksandr Grigorjev | Software Engineer
                     </div>
                     <div className='header-search'>
-                        <SearchInput
-                            setSearchValue={props.setSearchValue}
-                        />
+                        {/*<SearchInput*/}
+                        {/*    setSearchValue={props.setSearchValue}*/}
+                        {/*/>*/}
                     </div>
                 </div>
-                {isHumMenuHidden ? (
-                    <div className='header-genres'>
-                        <div className="genres-wrapper">
-                            <div
-                                className={'header-genre-button ' + (selectedGenreId === '' ? " clicked" : "")}
-                                id={'button-'}
-                                onClick={() => getNewEventsArray('')}
-                            >
-                                All Genres
-                            </div>
-                        </div>
-                        {genres.length > 4 ? genres.slice(0, 4).map((genre: GenreI) => {
-                            return (
-                                <div
-                                    className="genres-wrapper"
-                                    key={genre.id}
-                                >
-                                    <div
-                                        className={'header-genre-button ' + (selectedGenreId === genre.id ? " clicked" : "")}
-                                        id={'button-' + genre.id}
-                                        key={genre.id}
-                                        onClick={() => getNewEventsArray(genre.id)}
-                                    >
-                                        {genre.name}
-                                    </div>
-                                </div>
-                            );
-                        }) : genres.map((genre: GenreI) => {
-                                return (
-                                    <div
-                                        className={'header-genre-button ' + (selectedGenreId === genre.id ? " clicked" : "")}
-                                        key={genre.id}
-                                        onClick={() => getNewEventsArray(genre.id)}
-                                    >
-                                        {genre.name}
-                                    </div>
-                                );
-                            }
-                        )}
-                        {genres.length > 4 ? (
-                                <div>
-                                    <DropdownMenu<Item>
-                                        items={genres.slice(4, genres.length)}
-                                        title={'More'}
-                                        renderItem={renderItem}
-                                        setByClick={getNewEventsArray}
-                                        showingLength={4}
-                                    />
-                                </div>
-                            )
-                            : null
-                        }
-                    </div>
-                ) : (
-                    <HamburgerMenu<Item>
-                        items={genres}
-                        renderItem={renderItem}
-                        setItemId={getNewEventsArray}
-                    />
-                )}
+                {/*{isHumMenuHidden ? (*/}
+                {/*    <div className='header-genres'>*/}
+                {/*        <div className="genres-wrapper">*/}
+                {/*            <div*/}
+                {/*                className={'header-genre-button ' + (selectedGenreId === '' ? " clicked" : "")}*/}
+                {/*                id={'button-'}*/}
+                {/*                onClick={() => getNewEventsArray('')}*/}
+                {/*            >*/}
+                {/*                All Genres*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*        {genres.length > 4 ? genres.slice(0, 4).map((genre: GenreI) => {*/}
+                {/*            return (*/}
+                {/*                <div*/}
+                {/*                    className="genres-wrapper"*/}
+                {/*                    key={genre.id}*/}
+                {/*                >*/}
+                {/*                    <div*/}
+                {/*                        className={'header-genre-button ' + (selectedGenreId === genre.id ? " clicked" : "")}*/}
+                {/*                        id={'button-' + genre.id}*/}
+                {/*                        key={genre.id}*/}
+                {/*                        onClick={() => getNewEventsArray(genre.id)}*/}
+                {/*                    >*/}
+                {/*                        {genre.name}*/}
+                {/*                    </div>*/}
+                {/*                </div>*/}
+                {/*            );*/}
+                {/*        }) : genres.map((genre: GenreI) => {*/}
+                {/*                return (*/}
+                {/*                    <div*/}
+                {/*                        className={'header-genre-button ' + (selectedGenreId === genre.id ? " clicked" : "")}*/}
+                {/*                        key={genre.id}*/}
+                {/*                        onClick={() => getNewEventsArray(genre.id)}*/}
+                {/*                    >*/}
+                {/*                        {genre.name}*/}
+                {/*                    </div>*/}
+                {/*                );*/}
+                {/*            }*/}
+                {/*        )}*/}
+                {/*        {genres.length > 4 ? (*/}
+                {/*                <div>*/}
+                {/*                    <DropdownMenu<Item>*/}
+                {/*                        items={genres.slice(4, genres.length)}*/}
+                {/*                        title={'More'}*/}
+                {/*                        renderItem={renderItem}*/}
+                {/*                        setByClick={getNewEventsArray}*/}
+                {/*                        showingLength={4}*/}
+                {/*                    />*/}
+                {/*                </div>*/}
+                {/*            )*/}
+                {/*            : null*/}
+                {/*        }*/}
+                {/*    </div>*/}
+                {/*) : (*/}
+                {/*    <HamburgerMenu<Item>*/}
+                {/*        items={genres}*/}
+                {/*        renderItem={renderItem}*/}
+                {/*        setItemId={getNewEventsArray}*/}
+                {/*    />*/}
+                {/*)}*/}
             </div>
         </div>
     )
