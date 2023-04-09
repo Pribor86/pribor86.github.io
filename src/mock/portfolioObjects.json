@@ -26,7 +26,7 @@
     "images": [
       "../assets/portfolio/coding/lottie_ads.png"
     ],
-    "url": "https://portfolio-vuejs.netlify.app/",
+    "url": "https://lottieads.io/",
     "figma": "",
     "github": "It's a private repository",
     "tech": [
@@ -81,7 +81,7 @@
   },
   {
     "id": "5",
-    "name": "My LinkedIn Profile",
+    "name": "LinkedIn Profile",
     "description": "This is my LinkedIn profile. It is a single page application that uses ReactJS, React Redux, React Hooks, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
     "images": [
       "../assets/portfolio/coding/linkedin.png"
@@ -94,7 +94,7 @@
   },
   {
     "id": "6",
-    "name": "My GitHub Profile",
+    "name": "GitHub Profile",
     "description": "This is my GitHub profile. It is a single page application that uses ReactJS, React Redux, React Hooks, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
     "images": [
       "../assets/portfolio/coding/github.png"
@@ -103,25 +103,6 @@
     "github": "",
     "figma": "",
     "tech": [
-    ]
-  },
-  {
-    "id": "7",
-    "name": "My Portfolio Website",
-    "description": "This is my portfolio website. It is a single page application that uses ReactJS, React Redux, React Hooks, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
-    "images": [
-      "../assets/portfolio/coding/portfolio.png"
-    ],
-    "url": "https://andrii-khomenko.netlify.app/",
-    "github": "github",
-    "figma": "",
-    "tech": [
-      "ReactJS",
-      "React Redux",
-      "React Hooks",
-      "Styled Components",
-      "Netlify",
-      "GitHub"
     ]
   }
 ]

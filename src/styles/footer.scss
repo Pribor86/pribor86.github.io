@@ -8,6 +8,13 @@
 }
 
 .footer-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: $header-color;
+
   p {
     color: $header-color;
     font-family: $app-font;
@@ -20,5 +27,18 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.footer-link {
+  color: $header-color;
+  text-decoration: none;
+  font-family: $app-font;
+  font-size: 16px;
+  opacity: 0.7;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 

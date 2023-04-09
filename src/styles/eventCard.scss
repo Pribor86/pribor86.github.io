@@ -22,11 +22,36 @@
   height: 100%;
   object-fit: cover;
 
+  .image-container {
+    position: relative;
+    //display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .info-card-title {
+    position: absolute;
+    max-width: 80%;
+    top: 10px; /* Adjust this value to change the distance from the top */
+    left: 10px; /* Adjust this value to change the distance from the left */
+    color: #fff; /* Text color */
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black background to make the text more visible */
+    padding: 5px 10px;
+    border-radius: 3px; /* Add rounded corners to the text background */
+  }
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
+  //img {
+  //  width: 100%;
+  //  height: 100%;
+  //  object-fit: cover;
+  //}
 
   &.open:after {
     position: absolute;

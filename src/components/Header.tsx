@@ -54,13 +54,23 @@ export const Header: React.FC<IHeaderProps> = (props) => {
             <div className='header-wrapper sticky'>
                 <div className='header-row'>
                     <div className='header-title'>
-                        Portfolio - Aleksandr Grigorjev | Software Engineer
+                        Aleksandr Grigorjev
                     </div>
-                    <div className='header-search'>
+                    {/*<div className='header-search'>*/}
                         {/*<SearchInput*/}
                         {/*    setSearchValue={props.setSearchValue}*/}
                         {/*/>*/}
+                    {/*</div>*/}
+                </div>
+                <div className='header-row'>
+                    <div className='header-title' style={{fontSize: '1rem'}}>
+                        Software Engineer | Estonia, Tallinn | Union FinTech OÜ
                     </div>
+                    {/*<div className='header-search'>*/}
+                        {/*<SearchInput*/}
+                        {/*    setSearchValue={props.setSearchValue}*/}
+                        {/*/>*/}
+                    {/*</div>*/}
                 </div>
                 {/*{isHumMenuHidden ? (*/}
                 {/*    <div className='header-genres'>*/}

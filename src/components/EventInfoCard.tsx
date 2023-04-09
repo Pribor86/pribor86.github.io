@@ -67,27 +67,35 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                         <div className='event-info-card-description'>
                             <h2>{props.selectedEvent.name}</h2>
                             <div className='event-info-card-date'>
-                                <img src={calendarLogo} alt="date"/>
-                                <p>
-                                    {getDayFromDate(props.selectedEvent.tech[0])}
-                                    , {props.selectedEvent.tech[1]} @ {props.selectedEvent.tech[2]}
-                                </p>
+                                {/*<img src={calendarLogo} alt="date"/>*/}
+                                Technologies:
+                                    {props.selectedEvent.tech.length > 0 ? (
+                                       props.selectedEvent.tech.map((item, index) => {
+
+                                                  return (
+                                                    <span key={index} style={{whiteSpace: 'nowrap'}}>
+                                                         {item}
+                                                    </span>
+                                                  )
+                                        })
+                                    ) : (
+                                        <p>Date not available</p>
+                                    )}
+
+
                             </div>
                             <div className='event-info-card-place'>
-                                <img src={locationLogo} alt="location"/>
-                                {props.selectedEvent.tech.length > 0 ? (
-                                    <p>
-                                        {props.selectedEvent.tech[1]}
-                                        , {props.selectedEvent.tech[2]}
-                                        , {props.selectedEvent.tech[3]}
-                                    </p>
+                                {/*{ props.selectedEvent.github ? (*/}
 
-                                ) : (
-                                    <p>Location not available</p>
-                                )}
+
+
+
+
+                                {/*<img src={locationLogo} alt="location"/>*/}
+
                             </div>
                             <div className='event-info-card-context'>
-                                <p>{eventDesc.desc}</p>
+                                <p>{props.selectedEvent.description}</p>
                             </div>
                             <div className='event-info-card-button'>
                                 <BackButton openInfoCard={props.openInfoCard}/>
