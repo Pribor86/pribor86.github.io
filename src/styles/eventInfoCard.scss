@@ -77,6 +77,10 @@
 
 .event-info-card-place {
   @extend .event-info-card-date;
+  a {
+    text-decoration: none;
+    color: $header-color;
+  }
 }
 
 .event-info-card-context {

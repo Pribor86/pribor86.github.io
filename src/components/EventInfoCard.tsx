@@ -68,31 +68,41 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                             <h2>{props.selectedEvent.name}</h2>
                             <div className='event-info-card-date'>
                                 {/*<img src={calendarLogo} alt="date"/>*/}
-                                Technologies:
-                                    {props.selectedEvent.tech.length > 0 ? (
-                                       props.selectedEvent.tech.map((item, index) => {
+                                <b>Technologies:</b>
+                                {props.selectedEvent.tech.length > 0 ? (
+                                    props.selectedEvent.tech.map((item, index) => {
 
-                                                  return (
-                                                    <span key={index} style={{whiteSpace: 'nowrap'}}>
+                                        return (
+                                            <span key={index} style={{whiteSpace: 'nowrap'}}>
                                                          {item}
                                                     </span>
-                                                  )
-                                        })
-                                    ) : (
-                                        <p>Date not available</p>
-                                    )}
+                                        )
+                                    })
+                                ) : (
+                                    <p>Date not available</p>
+                                )}
 
 
                             </div>
                             <div className='event-info-card-place'>
-                                {/*{ props.selectedEvent.github ? (*/}
-
-
-
-
-
-                                {/*<img src={locationLogo} alt="location"/>*/}
-
+                                <b>Links:</b>
+                                {props.selectedEvent.links.length > 0 ? (
+                                    props.selectedEvent.links.map((item: any, index) => {
+                                        if (item.url.length > 0) {
+                                            return (
+                                                <span key={index} style={{whiteSpace: 'nowrap'}}>
+                                                    <a href={item.url} target="_blank" rel="noopener noreferrer">
+                                                        {item.name}
+                                                    </a>
+                                                </span>
+                                            );
+                                        } else {
+                                            return null;
+                                        }
+                                    })
+                                ) : (
+                                    <p>Links are not available!</p>
+                                )}
                             </div>
                             <div className='event-info-card-context'>
                                 <p>{props.selectedEvent.description}</p>

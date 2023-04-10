@@ -6,9 +6,23 @@
     "images": [
       "../assets/portfolio/coding/music_events.png"
     ],
-    "url": "https://symphonious-choux-45ed77.netlify.app",
-    "github": "https://github.com/Pribor86/ReactTypescriptApp",
-    "figma": "",
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Pribor86/ReactTypescriptApp",
+        "icon": "fab fa-github"
+      },
+      {
+        "name": "Netlify",
+        "url": "https://symphonious-choux-45ed77.netlify.app",
+        "icon": "fab fa-netlify"
+      },
+      {
+        "name": "Figma",
+        "url": "",
+        "icon": "fab fa-figma"
+      }
+    ],
     "tech": [
       "ReactJS",
       "TypeScript",
@@ -26,9 +40,23 @@
     "images": [
       "../assets/portfolio/coding/lottie_ads.png"
     ],
-    "url": "https://lottieads.io/",
-    "figma": "",
-    "github": "It's a private repository",
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "",
+        "icon": "fab fa-github"
+      },
+      {
+        "name": "LIVE",
+        "url": "https://lottieads.io/",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "Figma",
+        "url": "",
+        "icon": "fab fa-figma"
+      }
+    ],
     "tech": [
       "VueJS",
       "Vuex",
@@ -47,9 +75,23 @@
     "images": [
       "../assets/portfolio/coding/runproperty.png"
     ],
-    "url": "https://runproperty.com/",
-    "figma": "",
-    "github": "It's a private repository",
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "",
+        "icon": "fab fa-github"
+      },
+      {
+        "name": "Website",
+        "url": "https://runproperty.com/",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "Figma",
+        "url": "",
+        "icon": "fab fa-figma"
+      }
+    ],
     "tech": [
       "VueJS",
       "Vuex",
@@ -57,7 +99,8 @@
       "Axios",
       "Google Cloud",
       "AWS S3",
-      "GitLab"
+      "GitLab",
+      "RabbitMQ"
     ]
   },
   {
@@ -67,16 +110,31 @@
     "images": [
       "../assets/portfolio/coding/pet_stop.png"
     ],
-    "url": "",
-    "figma": "https://www.figma.com/file/CI6Zcru6vkoiIqWkA2OKLE/Untitled?node-id=2-101&t=utAoglVgY6WNUkcT-0",
-    "github": "",
+    "links": [
+        {
+            "name": "GitHub",
+            "url": "",
+            "icon": "fab fa-github"
+        },
+        {
+            "name": "LIVE",
+            "url": "https://petstop.netlify.app/",
+            "icon": "fas fa-globe"
+        },
+        {
+            "name": "Figma",
+            "url": "https://www.figma.com/file/CI6Zcru6vkoiIqWkA2OKLE/Untitled?node-id=2-101&t=utAoglVgY6WNUkcT-0",
+            "icon": "fab fa-figma"
+        }
+    ],
     "tech": [
       "VueJS",
       "Vuex",
       "Vue Router",
       "Axios",
       "Netlify",
-      "GitHub"
+      "GitHub",
+      "MongoDB"
     ]
   },
   {
@@ -86,9 +144,23 @@
     "images": [
       "../assets/portfolio/coding/linkedin.png"
     ],
-    "url": "https://www.linkedin.com/in/andrii-khomenko-0a1b3b1a3/",
-    "figma": "",
-    "github": "",
+    "links": [
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/aleksandr-grigorjev86/",
+        "icon": "fab fa-linkedin"
+      },
+      {
+        "name": "LIVE",
+        "url": "",
+        "icon": "fas fa-globe"
+      },
+      {
+        "name": "Figma",
+        "url": "",
+        "icon": "fab fa-figma"
+      }
+    ],
     "tech": [
     ]
   },
@@ -99,9 +171,13 @@
     "images": [
       "../assets/portfolio/coding/github.png"
     ],
-    "url": "https://github.com/Pribor86",
-    "github": "",
-    "figma": "",
+    "links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Pribor86",
+        "icon": "fab fa-github"
+      }
+      ],
     "tech": [
     ]
   }

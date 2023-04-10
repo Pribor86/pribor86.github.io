@@ -3,10 +3,14 @@ interface PortfolioItemI {
     name: string;
     description: string;
     images: string[];
-    url: string;
-    github: string;
-    figma: string;
+    links: link[];
     tech: string[];
+}
+
+interface link {
+    name: string;
+    url: string;
+    icon: string;
 }
 
 export default PortfolioItemI;
