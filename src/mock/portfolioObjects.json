@@ -71,7 +71,7 @@
   {
     "id": "3",
     "name": "RunProperty OU - Real Estate Web Application",
-    "description": "This is a web-application, built during my internship at LevelUp. It is a single page application that uses VueJS, Vuex, Vue Router, Vuetify, Lottie, Axios, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "description": "This is a web application that I developed during my time at RunProperty. It is a single-page application that utilizes VueJS, Vuex, Vue Router, Axios, and reusable components. The application is hosted on Google Cloud, and its source code is stored in a private repository on GitLab. This application is specifically designed for real estate brokers, with many integrations and exciting features",
     "images": [
       "../assets/portfolio/coding/runproperty.png"
     ],
@@ -106,7 +106,7 @@
   {
     "id": "4",
     "name": "PetStop - Study project",
-    "description": "This is a study project, built during my internship at LevelUp. It is a single page application that uses VueJS, Vuex, Vue Router, Vuetify, Lottie, Axios, and reusable components. The application is hosted on Netlify and the source code is available on GitHub.",
+    "description": "This is a university study project using VueJS, Vuex, Vue Router, Vuetify and Axios. The application is a single-page platform hosted on Netlify and its source code is on GitHub. It helps users find petsitters or petsitting jobs.",
     "images": [
       "../assets/portfolio/coding/pet_stop.png"
     ],
@@ -118,7 +118,7 @@
         },
         {
             "name": "LIVE",
-            "url": "https://petstop.netlify.app/",
+            "url": "https://jovial-bonbon-5df580.netlify.app",
             "icon": "fas fa-globe"
         },
         {

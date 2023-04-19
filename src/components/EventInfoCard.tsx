@@ -79,7 +79,7 @@ export const EventInfoCard: React.FC<EventInfoCardProps> = (props) => {
                                         )
                                     })
                                 ) : (
-                                    <p>Date not available</p>
+                                    <p>Not available</p>
                                 )}
 
 
